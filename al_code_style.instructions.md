@@ -42,6 +42,84 @@ This document outlines the coding standards and best practices for AL code in th
    - FilterPageBuilder
    - Other types (Text, Integer, Decimal, etc.)
 
+## Data Types
+
+1. **Use Enums Instead of Options**: Always use enums instead of the deprecated option data type
+   ```al
+   // Preferred: Use enum
+   enum 50100 "Document Status"
+   {
+       Extensible = true;
+       
+       value(0; Open) { Caption = 'Open'; }
+       value(1; "Pending Approval") { Caption = 'Pending Approval'; }
+       value(2; Approved) { Caption = 'Approved'; }
+       value(3; Rejected) { Caption = 'Rejected'; }
+   }
+   
+   // In your table or variable declaration
+   var
+       DocumentStatus: Enum "Document Status";
+   ```
+
+2. **Option Type Exceptions**: The only acceptable uses of option data type are:
+   
+   **Exception 1**: When calling existing procedures that use option parameters
+   ```al
+   // Acceptable when calling standard BC procedures
+   var
+       Direction: Option Forward,Backward;
+   begin
+       // Calling a standard procedure that expects option parameter
+       Customer.Next(Direction::Forward);
+   end;
+   ```
+   
+   **Exception 2**: When subscribing to events that use option parameters
+   ```al
+   // Acceptable in event subscribers
+   [EventSubscriber(ObjectType::Codeunit, Codeunit::"Sales-Post", 'OnBeforePostSalesDoc', '', false, false)]
+   local procedure OnBeforePostSalesDoc(var SalesHeader: Record "Sales Header"; CommitIsSuppressed: Boolean; PreviewMode: Boolean; var HideProgressWindow: Boolean; var IsHandled: Boolean; var DefaultOption: Option " ",Ship,Invoice,"Ship and Invoice")
+   begin
+       // Event handler code here
+   end;
+   ```
+
+3. **Enum Best Practices**: When creating enums, follow these guidelines:
+   ```al
+   enum 50101 "Payment Method"
+   {
+       Extensible = true;  // Always make extensible unless there's a specific reason not to
+       
+       value(0; " ") { Caption = ' '; }  // Include blank value when appropriate
+       value(1; Cash) { Caption = 'Cash'; }
+       value(2; "Credit Card") { Caption = 'Credit Card'; }
+       value(3; "Bank Transfer") { Caption = 'Bank Transfer'; }
+       value(4; Check) { Caption = 'Check'; }
+   }
+   ```
+
+4. **Converting Options to Enums**: When refactoring existing option fields, create corresponding enums
+   ```al
+   // Old option field (deprecated)
+   // Status: Option " ",Open,"Pending Approval",Approved,Rejected;
+   
+   // New enum approach
+   Status: Enum "Document Status";
+   
+   // Conversion procedure for data migration
+   procedure ConvertOptionToEnum(OptionValue: Integer): Enum "Document Status"
+   begin
+       case OptionValue of
+           0: exit("Document Status"::" ");
+           1: exit("Document Status"::Open);
+           2: exit("Document Status"::"Pending Approval");
+           3: exit("Document Status"::Approved);
+           4: exit("Document Status"::Rejected);
+       end;
+   end;
+   ```
+
 ## Code Formatting and Indentation
 
 1. **Indentation**: Use 4 spaces for indentation (not tabs)
