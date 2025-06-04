@@ -11,17 +11,17 @@ prompts/
 ├── README.md                                    # This file - documentation and guidelines
 ├── instructions.instructions.md                 # Main entry point and core principles
 ├── general_instructions.instructions.md         # General AI assistant guidelines
-├── al_code.instructions.md                     # Comprehensive AL coding guide (consolidated)
-├── al_code_style.instructions.md               # Detailed code style and formatting guidelines
+├── al_code.instructions.md                      # Comprehensive AL coding guide (consolidated)
+├── al_code_style.instructions.md                # Detailed code style and formatting guidelines
 ├── coding-standards.instructions.md             # Basic coding standards and patterns
 ├── naming-conventions.instructions.md           # Variable and object naming rules
 ├── object-specific-guidelines.instructions.md   # Guidelines for specific AL object types
-├── error-handling.instructions.md              # Error handling best practices
+├── error-handling.instructions.md               # Error handling best practices
 ├── performance-optimization.instructions.md     # Performance optimization guidelines
 ├── integration-standards.instructions.md        # Business Central integration standards
-├── linter_check.instructions.md                # Linter checking procedures
+├── linter_check.instructions.md                 # Linter checking procedures
 ├── appsource-requirements.instructions.md       # AppSource publication requirements
-└── tddflow.instructions.md                     # Test-driven development flow
+└── tddflow.instructions.md                      # Test-driven development flow
 ```
 
 ## File Descriptions
