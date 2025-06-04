@@ -58,6 +58,10 @@ prompts/
 - **Purpose**: Comprehensive naming rules for all code elements
 - **Content**: Variable naming patterns, object naming conventions, prefix guidelines
 
+#### `procedure-accessibility.instructions.md`
+- **Purpose**: Rules for procedure accessibility to ensure testability and encapsulation
+- **Content**: Guidelines on using `internal` for procedures, prohibition of `local` procedures, rationale for test app access
+
 ### Object-Specific Guidelines
 
 #### `object-specific-guidelines.instructions.md`
