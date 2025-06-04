@@ -50,20 +50,20 @@ This document outlines the coding standards and best practices for AL code in th
    enum 50100 "Document Status"
    {
        Extensible = true;
-       
+
        value(0; Open) { Caption = 'Open'; }
        value(1; "Pending Approval") { Caption = 'Pending Approval'; }
        value(2; Approved) { Caption = 'Approved'; }
        value(3; Rejected) { Caption = 'Rejected'; }
    }
-   
+
    // In your table or variable declaration
    var
        DocumentStatus: Enum "Document Status";
    ```
 
 2. **Option Type Exceptions**: The only acceptable uses of option data type are:
-   
+
    **Exception 1**: When calling existing procedures that use option parameters
    ```al
    // Acceptable when calling standard BC procedures
@@ -74,7 +74,7 @@ This document outlines the coding standards and best practices for AL code in th
        Customer.Next(Direction::Forward);
    end;
    ```
-   
+
    **Exception 2**: When subscribing to events that use option parameters
    ```al
    // Acceptable in event subscribers
@@ -90,7 +90,7 @@ This document outlines the coding standards and best practices for AL code in th
    enum 50101 "Payment Method"
    {
        Extensible = true;  // Always make extensible unless there's a specific reason not to
-       
+
        value(0; " ") { Caption = ' '; }  // Include blank value when appropriate
        value(1; Cash) { Caption = 'Cash'; }
        value(2; "Credit Card") { Caption = 'Credit Card'; }
@@ -103,10 +103,10 @@ This document outlines the coding standards and best practices for AL code in th
    ```al
    // Old option field (deprecated)
    // Status: Option " ",Open,"Pending Approval",Approved,Rejected;
-   
+
    // New enum approach
    Status: Enum "Document Status";
-   
+
    // Conversion procedure for data migration
    procedure ConvertOptionToEnum(OptionValue: Integer): Enum "Document Status"
    begin
