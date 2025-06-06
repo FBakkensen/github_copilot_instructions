@@ -21,7 +21,8 @@ prompts/
 ├── integration-standards.instructions.md        # Business Central integration standards
 ├── linter_check.instructions.md                 # Linter checking procedures
 ├── appsource-requirements.instructions.md       # AppSource publication requirements
-└── tddflow.instructions.md                      # Test-driven development flow
+├── tddflow.instructions.md                      # Test-driven development flow
+└── test-data-generation.instructions.md         # Test data generation guidelines
 ```
 
 ## File Descriptions
@@ -85,6 +86,10 @@ prompts/
 #### `tddflow.instructions.md`
 - **Purpose**: Test-driven development guidelines
 - **Content**: Basic rules about clean code without refactoring comments
+
+#### `test-data-generation.instructions.md`
+- **Purpose**: Guidelines for generating test data in AL test libraries
+- **Content**: 'X' prefix requirements for test data, unique data generation patterns, cleanup strategies, common test data patterns
 
 ### Performance and Integration
 
