@@ -3,11 +3,15 @@ applyTo: '**/*.al'
 ---
 # Procedure Accessibility for Testability
 
-This document outlines rules for procedure accessibility in AL files to ensure proper testability and maintain encapsulation in the main app.
+> **Note**: This content has been consolidated. For complete accessibility standards, please refer to: **[IntegrationDeployment/accessibility-standards.instructions.md](IntegrationDeployment/accessibility-standards.instructions.md)**
 
-## Rules
+## Quick Reference
 
-1. **Internal Procedures**: Internal procedures in the main app should remain `internal`. They are accessible to the test app and do not need to be made `public`.
-2. **Do Not Use Local Procedures**: Do not use `local` procedures, as they cannot be accessed or tested from the test app. All procedures that need to be accessed from the test app should be marked as `internal`.
+This file serves as a cross-reference to the consolidated accessibility standards located in `IntegrationDeployment/accessibility-standards.instructions.md` which contains:
 
-By following these rules, you ensure that your code remains testable while maintaining proper encapsulation and access control.
+- Comprehensive procedure accessibility guidelines
+- Testability patterns and best practices
+- Encapsulation strategies for AL development
+- Integration-focused accessibility standards
+
+**For GitHub Copilot Integration**: Use the consolidated file for complete, up-to-date accessibility guidance.
