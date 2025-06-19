@@ -165,7 +165,486 @@ end;
 - [ ] Installation and upgrade processes work correctly
 - [ ] App uninstalls cleanly without leaving artifacts
 
-### Code Quality Standards for AppSource
+### Comprehensive AppSource Code Quality Examples
+
+```al
+// Complete AppSource-compliant table example
+table 50100 "ABC Customer Rating"
+{
+    Caption = 'Customer Rating';
+    DataClassification = CustomerContent;
+    LookupPageId = "ABC Customer Rating List";
+    DrillDownPageId = "ABC Customer Rating List";
+
+    fields
+    {
+        field(1; "No."; Code[20])
+        {
+            Caption = 'No.';
+            DataClassification = CustomerContent;
+            NotBlank = true;
+            
+            trigger OnValidate()
+            begin
+                TestField("No.");
+                if "No." <> xRec."No." then
+                    ValidateNumberSequence();
+            end;
+        }
+        field(2; "Customer No."; Code[20])
+        {
+            Caption = 'Customer No.';
+            DataClassification = CustomerContent;
+            TableRelation = Customer."No.";
+            NotBlank = true;
+            
+            trigger OnValidate()
+            var
+                Customer: Record Customer;
+            begin
+                if "Customer No." <> '' then begin
+                    Customer.Get("Customer No.");
+                    "Customer Name" := Customer.Name;
+                end else
+                    "Customer Name" := '';
+            end;
+        }
+        field(3; "Customer Name"; Text[100])
+        {
+            Caption = 'Customer Name';
+            DataClassification = CustomerContent;
+            Editable = false;
+        }
+        field(4; "Rating Score"; Integer)
+        {
+            Caption = 'Rating Score';
+            DataClassification = CustomerContent;
+            MinValue = 1;
+            MaxValue = 5;
+            NotBlank = true;
+            
+            trigger OnValidate()
+            begin
+                if ("Rating Score" < 1) or ("Rating Score" > 5) then
+                    Error(InvalidRatingScoreErr);
+            end;
+        }
+        field(5; "Rating Date"; Date)
+        {
+            Caption = 'Rating Date';
+            DataClassification = CustomerContent;
+            NotBlank = true;
+            
+            trigger OnValidate()
+            begin
+                if "Rating Date" > Today then
+                    Error(FutureDateErr);
+            end;
+        }
+        field(6; Comments; Text[250])
+        {
+            Caption = 'Comments';
+            DataClassification = CustomerContent;
+        }
+        field(7; "Created By"; Code[50])
+        {
+            Caption = 'Created By';
+            DataClassification = EndUserIdentifiableInformation;
+            Editable = false;
+        }
+        field(8; "Created Date Time"; DateTime)
+        {
+            Caption = 'Created Date Time';
+            DataClassification = CustomerContent;
+            Editable = false;
+        }
+    }
+
+    keys
+    {
+        key(PK; "No.")
+        {
+            Clustered = true;
+        }
+        key("Customer No."; "Customer No.", "Rating Date")
+        {
+            // Performance key for customer-based queries
+        }
+    }
+
+    fieldgroups
+    {
+        fieldgroup(DropDown; "No.", "Customer No.", "Customer Name", "Rating Score") { }
+        fieldgroup(Brick; "No.", "Customer Name", "Rating Score", "Rating Date") { }
+    }
+
+    trigger OnInsert()
+    begin
+        if "No." = '' then
+            NoSeriesMgt.InitSeries(GetNoSeriesCode(), xRec."No. Series", 0D, "No.", "No. Series");
+        
+        "Created By" := CopyStr(UserId(), 1, MaxStrLen("Created By"));
+        "Created Date Time" := CurrentDateTime;
+        
+        if "Rating Date" = 0D then
+            "Rating Date" := Today;
+    end;
+
+    trigger OnModify()
+    begin
+        TestField("No.");
+        TestField("Customer No.");
+    end;
+
+    trigger OnDelete()
+    begin
+        CheckDeletionRights();
+    end;
+
+    var
+        NoSeriesMgt: Codeunit NoSeriesManagement;
+        InvalidRatingScoreErr: Label 'Rating score must be between 1 and 5.';
+        FutureDateErr: Label 'Rating date cannot be in the future.';
+        DeletionNotAllowedErr: Label 'You do not have permission to delete this rating.';
+
+    local procedure ValidateNumberSequence()
+    var
+        ABCSetup: Record "ABC Setup";
+    begin
+        ABCSetup.Get();
+        ABCSetup.TestField("Rating No. Series");
+    end;
+
+    local procedure GetNoSeriesCode(): Code[20]
+    var
+        ABCSetup: Record "ABC Setup";
+    begin
+        ABCSetup.Get();
+        exit(ABCSetup."Rating No. Series");
+    end;
+
+    local procedure CheckDeletionRights()
+    var
+        UserSetup: Record "User Setup";
+    begin
+        if not UserSetup.Get(UserId()) then
+            Error(DeletionNotAllowedErr);
+        
+        if not UserSetup."ABC Delete Ratings" then
+            Error(DeletionNotAllowedErr);
+    end;
+
+    procedure GetRatingStyleExpression(): Text
+    begin
+        case "Rating Score" of
+            1, 2:
+                exit('Unfavorable');
+            3:
+                exit('Ambiguous');
+            4, 5:
+                exit('Favorable');
+            else
+                exit('Standard');
+        end;
+    end;
+}
+
+// AppSource-compliant page with proper accessibility
+page 50100 "ABC Customer Rating Card"
+{
+    Caption = 'Customer Rating Card';
+    PageType = Card;
+    SourceTable = "ABC Customer Rating";
+    UsageCategory = None;
+
+    layout
+    {
+        area(Content)
+        {
+            group(General)
+            {
+                Caption = 'General';
+                field("No."; Rec."No.")
+                {
+                    ApplicationArea = All;
+                    ToolTip = 'Specifies the number of the customer rating.';
+                    ShowMandatory = true;
+                    Importance = Promoted;
+
+                    trigger OnAssistEdit()
+                    begin
+                        if Rec.AssistEdit(xRec) then
+                            CurrPage.Update();
+                    end;
+                }
+                field("Customer No."; Rec."Customer No.")
+                {
+                    ApplicationArea = All;
+                    ToolTip = 'Specifies the customer number for this rating.';
+                    ShowMandatory = true;
+                    Importance = Promoted;
+
+                    trigger OnValidate()
+                    begin
+                        CurrPage.Update(true);
+                    end;
+                }
+                field("Customer Name"; Rec."Customer Name")
+                {
+                    ApplicationArea = All;
+                    ToolTip = 'Specifies the name of the customer.';
+                    Editable = false;
+                    Importance = Promoted;
+                }
+                field("Rating Score"; Rec."Rating Score")
+                {
+                    ApplicationArea = All;
+                    ToolTip = 'Specifies the rating score from 1 (poor) to 5 (excellent).';
+                    ShowMandatory = true;
+                    StyleExpr = RatingStyleExpr;
+                    Importance = Promoted;
+
+                    trigger OnValidate()
+                    begin
+                        UpdateRatingStyle();
+                    end;
+                }
+                field("Rating Date"; Rec."Rating Date")
+                {
+                    ApplicationArea = All;
+                    ToolTip = 'Specifies the date when the rating was given.';
+                    ShowMandatory = true;
+                    Importance = Promoted;
+                }
+            }
+            group(Details)
+            {
+                Caption = 'Details';
+                field(Comments; Rec.Comments)
+                {
+                    ApplicationArea = All;
+                    ToolTip = 'Specifies additional comments about the rating.';
+                    MultiLine = true;
+                }
+            }
+            group(Administration)
+            {
+                Caption = 'Administration';
+                field("Created By"; Rec."Created By")
+                {
+                    ApplicationArea = All;
+                    ToolTip = 'Specifies who created this rating.';
+                    Editable = false;
+                }
+                field("Created Date Time"; Rec."Created Date Time")
+                {
+                    ApplicationArea = All;
+                    ToolTip = 'Specifies when this rating was created.';
+                    Editable = false;
+                }
+            }
+        }
+        area(FactBoxes)
+        {
+            part(CustomerDetailsFactBox; "Customer Details FactBox")
+            {
+                ApplicationArea = All;
+                SubPageLink = "No." = field("Customer No.");
+            }
+            systempart(Notes; Notes)
+            {
+                ApplicationArea = All;
+            }
+            systempart(Links; Links)
+            {
+                ApplicationArea = All;
+            }
+        }
+    }
+
+    actions
+    {
+        area(Processing)
+        {
+            action(SubmitRating)
+            {
+                Caption = 'Submit Rating';
+                ToolTip = 'Submit the rating for processing.';
+                Image = SendTo;
+                ApplicationArea = All;
+
+                trigger OnAction()
+                var
+                    RatingMgt: Codeunit "ABC Customer Rating Mgt";
+                begin
+                    if RatingMgt.ValidateCustomerRating(Rec) then begin
+                        RatingMgt.ProcessCustomerRating(Rec);
+                        CurrPage.Update(false);
+                        Message(RatingSubmittedMsg);
+                    end;
+                end;
+            }
+            action(CopyRating)
+            {
+                Caption = 'Copy Rating';
+                ToolTip = 'Create a copy of this rating.';
+                Image = Copy;
+                ApplicationArea = All;
+
+                trigger OnAction()
+                var
+                    NewRating: Record "ABC Customer Rating";
+                    RatingCard: Page "ABC Customer Rating Card";
+                begin
+                    NewRating.TransferFields(Rec, false);
+                    NewRating."No." := '';
+                    NewRating."Rating Date" := Today;
+                    NewRating.Insert(true);
+                    
+                    RatingCard.SetRecord(NewRating);
+                    RatingCard.RunModal();
+                end;
+            }
+        }
+        area(Navigation)
+        {
+            action(Customer)
+            {
+                Caption = 'Customer';
+                ToolTip = 'View or edit the customer information.';
+                Image = Customer;
+                ApplicationArea = All;
+                RunObject = page "Customer Card";
+                RunPageLink = "No." = field("Customer No.");
+            }
+            action(CustomerRatings)
+            {
+                Caption = 'All Customer Ratings';
+                ToolTip = 'View all ratings for this customer.';
+                Image = List;
+                ApplicationArea = All;
+                RunObject = page "ABC Customer Rating List";
+                RunPageLink = "Customer No." = field("Customer No.");
+            }
+        }
+        area(Reporting)
+        {
+            action(PrintRating)
+            {
+                Caption = 'Print Rating';
+                ToolTip = 'Print the customer rating document.';
+                Image = Print;
+                ApplicationArea = All;
+
+                trigger OnAction()
+                begin
+                    Report.RunModal(Report::"ABC Customer Rating Document", true, true, Rec);
+                end;
+            }
+        }
+        area(Promoted)
+        {
+            group(Category_Process)
+            {
+                Caption = 'Process';
+                actionref(SubmitRating_Promoted; SubmitRating) { }
+                actionref(CopyRating_Promoted; CopyRating) { }
+            }
+            group(Category_Navigate)
+            {
+                Caption = 'Navigate';
+                actionref(Customer_Promoted; Customer) { }
+                actionref(CustomerRatings_Promoted; CustomerRatings) { }
+            }
+            group(Category_Report)
+            {
+                Caption = 'Report';
+                actionref(PrintRating_Promoted; PrintRating) { }
+            }
+        }
+    }
+
+    trigger OnAfterGetRecord()
+    begin
+        UpdateRatingStyle();
+    end;
+
+    trigger OnNewRecord(BelowxRec: Boolean)
+    begin
+        UpdateRatingStyle();
+    end;
+
+    var
+        RatingStyleExpr: Text;
+        RatingSubmittedMsg: Label 'The rating has been submitted successfully.';
+
+    local procedure UpdateRatingStyle()
+    begin
+        RatingStyleExpr := Rec.GetRatingStyleExpression();
+    end;
+}
+
+// AppSource-compliant Setup table with proper validation
+table 50101 "ABC Setup"
+{
+    Caption = 'ABC Setup';
+    DataClassification = CustomerContent;
+
+    fields
+    {
+        field(1; "Primary Key"; Code[10])
+        {
+            Caption = 'Primary Key';
+            DataClassification = SystemMetadata;
+        }
+        field(2; "Rating No. Series"; Code[20])
+        {
+            Caption = 'Rating No. Series';
+            DataClassification = CustomerContent;
+            TableRelation = "No. Series";
+            
+            trigger OnValidate()
+            begin
+                if "Rating No. Series" <> '' then
+                    NoSeriesMgt.TestManual("Rating No. Series");
+            end;
+        }
+        field(3; "Default Rating Category"; Enum "ABC Rating Category")
+        {
+            Caption = 'Default Rating Category';
+            DataClassification = CustomerContent;
+        }
+        field(4; "Auto-Process Ratings"; Boolean)
+        {
+            Caption = 'Auto-Process Ratings';
+            DataClassification = CustomerContent;
+        }
+        field(5; "Email Notifications"; Boolean)
+        {
+            Caption = 'Email Notifications';
+            DataClassification = CustomerContent;
+        }
+    }
+
+    keys
+    {
+        key(PK; "Primary Key")
+        {
+            Clustered = true;
+        }
+    }
+
+    var
+        NoSeriesMgt: Codeunit NoSeriesManagement;
+
+    procedure GetRecordOnce()
+    begin
+        if not Get() then begin
+            Init();
+            Insert();
+        end;
+    end;
+}
 ```al
 // Good: Proper error handling with user guidance
 procedure ProcessPayment(Amount: Decimal)
