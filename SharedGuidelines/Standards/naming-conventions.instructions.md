@@ -35,17 +35,53 @@ This document outlines the comprehensive naming conventions for variables, param
 
 ### Record Variables
 
-- Names of variables and parameters of type `Record` should be suffixed with the table name without whitespaces
-- For multiple variables of the same record type, use meaningful suffixes
+Names of variables and parameters of type `Record` should be suffixed with the table name without whitespaces. For multiple variables of the same record type, use meaningful suffixes.
 
-**Wrong:**
-```al
-JobRecordJob: Record Job;
-```
+**Complete Examples:**
 
-**Right:**
 ```al
-Job: Record Job;
+// Basic record variable naming
+procedure ProcessCustomer()
+var
+    Customer: Record Customer;
+    SalesHeader: Record "Sales Header";
+    SalesLine: Record "Sales Line";
+begin
+    // Implementation
+end;
+
+// Multiple variables of the same type - use descriptive suffixes
+procedure TransferBetweenCustomers()
+var
+    SourceCustomer: Record Customer;
+    TargetCustomer: Record Customer;
+    TempCustomer: Record Customer temporary;
+begin
+    // Transfer logic implementation
+end;
+
+// Complex scenario with related records
+procedure AnalyzeCustomerSales()
+var
+    Customer: Record Customer;
+    SalesHeader: Record "Sales Header";
+    SalesLine: Record "Sales Line";
+    ItemLedgerEntry: Record "Item Ledger Entry";
+    TempSalesAnalysis: Record "Sales Analysis" temporary;
+    FilterCustomer: Record Customer;
+begin
+    // Analysis implementation
+end;
+
+// Working with extensions and base tables
+procedure ProcessCustomerRatings()
+var
+    Customer: Record Customer;  // Base table
+    CustomerRating: Record "ABC Customer Rating";  // Extension table
+    TempCustomerSummary: Record "Customer Summary" temporary;
+begin
+    // Rating processing logic
+end;
 ```
 
 ### Page Variables
