@@ -45,10 +45,57 @@ This workflow addresses the following AL development areas:
 
 ## Integration Points
 
-### Related Workflows
-- **TestingValidation**: Core development patterns enable effective testing strategies
-- **PerformanceOptimization**: Well-designed objects provide foundation for performance optimization
-- **SharedGuidelines**: Depends on shared naming conventions, code style, and error handling standards
+### Workflow Dependencies
+
+#### Incoming Dependencies
+- **SharedGuidelines**: Provides foundational standards and principles for all development
+  - Core principles guide architectural decisions and design patterns
+  - Naming conventions ensure consistent object and procedure naming
+  - Code style standards maintain readable and maintainable code structure
+  - Error handling patterns provide robust exception management
+
+#### Outgoing Dependencies
+- **TestingValidation**: CoreDevelopment provides patterns and objects for validation
+  - Object structures and business logic enable comprehensive test coverage
+  - Proper naming conventions facilitate automated test generation
+  - Well-structured code supports effective unit and integration testing
+  - Error handling patterns enable proper test failure scenarios
+
+- **PerformanceOptimization**: Foundation code quality enables effective optimization
+  - Clean object design provides baseline for performance improvements
+  - Proper code organization facilitates performance profiling and analysis
+  - Standard patterns enable systematic optimization approaches
+
+- **IntegrationDeployment**: Core objects become integration endpoints
+  - Well-designed tables and pages support API development
+  - Consistent error handling enables robust integration patterns
+  - Standard object patterns facilitate external system connections
+
+- **AppSourcePublishing**: Quality development practices support marketplace compliance
+  - Code standards alignment with AppSource requirements
+  - Object design patterns that meet marketplace quality criteria
+
+### Transition Points
+- **From SharedGuidelines**: Apply core principles and standards to object development
+  - Review core-principles.instructions.md before starting development
+  - Reference naming-conventions for consistent object naming
+  - Apply code-style standards throughout implementation
+
+- **To TestingValidation**: Move from development to quality assurance
+  - Complete object implementation with proper error handling
+  - Ensure naming conventions support test automation
+  - Validate business logic meets requirements before testing phase
+
+- **To PerformanceOptimization**: Optimize implemented objects for performance
+  - Profile current performance baseline before optimization
+  - Apply optimization patterns to existing object implementations
+  - Maintain code quality while improving performance metrics
+
+### Shared Component Usage
+- **Naming Conventions**: Applied to all objects, procedures, variables, and fields
+- **Code Style Standards**: Consistent formatting, indentation, and commenting patterns
+- **Error Handling Patterns**: Uniform exception management across all business logic
+- **Core Principles**: Architectural guidance for all development decisions
 
 ### Cross-References
 - See `SharedGuidelines/Standards/` for: naming-conventions, code-style, error-handling

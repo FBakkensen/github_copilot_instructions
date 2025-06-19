@@ -45,10 +45,63 @@ This workflow addresses the following AL development areas:
 
 ## Integration Points
 
-### Related Workflows
-- **CoreDevelopment**: Testing validates development patterns and object implementations
-- **PerformanceOptimization**: Testing provides baseline metrics for performance improvements
-- **SharedGuidelines**: Testing follows shared standards for consistency and compliance
+### Workflow Dependencies
+
+#### Incoming Dependencies
+- **CoreDevelopment**: Provides objects and business logic for validation testing
+  - Object patterns and structures enable comprehensive test coverage
+  - Naming conventions from SharedGuidelines facilitate test automation
+  - Business logic implementation provides test scenarios and validation points
+  - Code quality standards ensure testable and maintainable code structure
+
+- **SharedGuidelines**: Provides standards and principles applied to testing code
+  - Naming conventions ensure consistent test object and procedure naming
+  - Code style standards maintain readable test implementations
+  - Error handling patterns enable proper test failure and exception scenarios
+  - Core principles guide testing methodology and quality objectives
+
+#### Outgoing Dependencies
+- **PerformanceOptimization**: Testing provides baseline metrics and quality validation
+  - Test results identify performance bottlenecks and optimization opportunities
+  - Quality metrics establish baselines for performance improvement measurement
+  - Test data patterns inform performance testing scenarios and stress testing
+  - Validation processes ensure optimizations don't compromise functionality
+
+- **AppSourcePublishing**: Quality validation ensures marketplace compliance
+  - Comprehensive testing validates AppSource technical requirements
+  - Quality metrics demonstrate code standards compliance
+  - Test coverage documentation supports marketplace approval process
+  - Validation processes ensure accessibility and integration standards
+
+- **IntegrationDeployment**: Testing validates integration patterns and deployment readiness
+  - Integration testing validates external system connections
+  - Quality validation ensures deployment stability and reliability
+  - Test automation supports continuous integration and deployment processes
+
+### Transition Points
+- **From CoreDevelopment**: Move from implementation to quality validation
+  - Complete object development with proper naming and structure
+  - Implement business logic following SharedGuidelines standards
+  - Ensure error handling patterns support test scenario validation
+  - Apply code style standards that facilitate test automation
+
+- **To PerformanceOptimization**: Use testing results to guide optimization efforts
+  - Analyze test performance metrics to identify bottlenecks
+  - Use quality validation results to prioritize optimization areas
+  - Maintain test coverage during optimization process
+  - Validate performance improvements against established test baselines
+
+- **To AppSourcePublishing**: Ensure quality standards meet marketplace requirements
+  - Complete comprehensive testing with documented results
+  - Validate accessibility and integration compliance through testing
+  - Document test coverage and quality metrics for submission
+  - Ensure all validation processes meet AppSource approval criteria
+
+### Shared Component Usage
+- **Naming Conventions**: Applied to test objects, procedures, and test data with 'X' prefixes
+- **Code Style Standards**: Consistent formatting and documentation in test implementations
+- **Error Handling Patterns**: Proper exception testing and validation error scenarios
+- **Quality Validation Processes**: Systematic application across all development workflows
 
 ### Cross-References
 - See `SharedGuidelines/Standards/` for: code-style standards applied in testing

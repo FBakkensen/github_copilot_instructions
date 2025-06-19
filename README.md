@@ -174,26 +174,211 @@ This repository provides comprehensive, workflow-based AL development guidelines
 
 ## Workflow Integration
 
-### Primary Workflow Connections
-- **CoreDevelopment** ↔ **SharedGuidelines**: Core development uses shared standards as foundation
-- **TestingValidation** ← **CoreDevelopment**: Testing validates development patterns and implementation
-- **IntegrationDeployment** ← **CoreDevelopment**: Integration builds on core development patterns
-- **PerformanceOptimization** ← **CoreDevelopment**: Optimization improves development outcomes
-- **AppSourcePublishing** ← **All Workflows**: Publishing requires compliance across all areas
+## Workflow Integration
 
-### Development Flow
-1. **Foundation**: Start with [SharedGuidelines/Configuration/core-principles](SharedGuidelines/Configuration/core-principles.instructions.md)
-2. **Development**: Use [CoreDevelopment](CoreDevelopment/) with [SharedGuidelines/Standards](SharedGuidelines/Standards/)
-3. **Quality Assurance**: Apply [TestingValidation](TestingValidation/) processes
-4. **Integration**: Follow [IntegrationDeployment](IntegrationDeployment/) when needed
-5. **Optimization**: Use [PerformanceOptimization](PerformanceOptimization/) for performance tuning
-6. **Publishing**: Complete [AppSourcePublishing](AppSourcePublishing/) for marketplace
+### Comprehensive Workflow Dependency Diagram
 
-### Transition Points
-- **Development → Testing**: Move from [CoreDevelopment](CoreDevelopment/) to [TestingValidation](TestingValidation/)
-- **Testing → Optimization**: Use [TestingValidation](TestingValidation/) results to guide [PerformanceOptimization](PerformanceOptimization/)
-- **Integration throughout**: Apply [IntegrationDeployment](IntegrationDeployment/) patterns during development
-- **Standards always**: Reference [SharedGuidelines](SharedGuidelines/) consistently across all workflows
+```
+AL Development Methodology - Integrated Workflow Architecture
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                           SharedGuidelines                                 │
+│                    ┌─────────────┬─────────────┐                           │
+│                    │  Standards/ │Configuration│                           │
+│                    │    ┌────────┴─────────┐   │                           │
+│                    │    │ All Workflows   │   │                           │
+│                    │    │ Reference These  │   │                           │
+│                    │    └─────────┬────────┘   │                           │
+└────────────────────┴──────────────┼────────────┴───────────────────────────┘
+                                    │
+                   ┌────────────────┼────────────────┐
+                   ▼                ▼                ▼
+          ┌─────────────────┐ ┌─────────────────┐ ┌─────────────────┐
+          │ CoreDevelopment │ │IntegrationDeploy│ │                 │
+          │                 │ │                 │ │                 │
+          │ • Objects       │ │ • APIs          │ │                 │
+          │ • Business Logic│ │ • Accessibility │ │                 │
+          │ • Standards     │ │ • Deployment    │ │                 │
+          └─────────┬───────┘ └─────────┬───────┘ │                 │
+                    │                   │         │                 │
+                    ├───────────────────┼─────────▼                 │
+                    │                   │ ┌─────────────────┐       │
+                    │                   └─│ TestingValidation│       │
+                    │                     │                 │       │
+                    │                     │ • Quality       │       │
+                    │                     │ • Validation    │       │
+                    │                     │ • Test Data     │       │
+                    │                     └─────────┬───────┘       │
+                    │                               │               │
+                    └───────────────────────────────┼───────────────┘
+                                                    │
+                                                    ▼
+                                        ┌─────────────────┐
+                                        │PerformanceOptim │
+                                        │                 │
+                                        │ • Optimization  │
+                                        │ • Monitoring    │
+                                        │ • Benchmarks    │
+                                        └─────────┬───────┘
+                                                  │
+                                                  ▼
+                                        ┌─────────────────┐
+                                        │AppSourcePublish │
+                                        │                 │
+                                        │ • Compliance    │
+                                        │ • Documentation │
+                                        │ • Marketplace   │
+                                        └─────────────────┘
+
+Integration Flow: All workflows ← SharedGuidelines → Foundation → Testing → Optimization → Publishing
+Cross-Flow: Integration patterns apply throughout all workflow phases
+```
+
+### Primary Workflow Connections and Dependencies
+
+#### Foundation Layer
+- **SharedGuidelines** ↔ **All Workflows**: Universal standards and principles foundation
+  - Core principles guide all development decisions and architectural choices
+  - Naming conventions ensure consistency across all objects and components
+  - Code style standards maintain quality and readability throughout development
+  - Error handling patterns provide robust exception management across all scenarios
+
+#### Development Layer Dependencies
+- **CoreDevelopment** ← **SharedGuidelines**: Development uses shared standards as foundation
+  - Standard patterns inform object design and business logic implementation
+  - Quality practices ensure professional development from project inception
+  - Consistent approaches support maintainable and scalable AL applications
+
+- **IntegrationDeployment** ↔ **All Workflows**: Integration considerations apply throughout development
+  - **↔ CoreDevelopment**: Integration patterns built into object design and development
+  - **↔ TestingValidation**: Integration testing validates external connectivity and APIs
+  - **↔ PerformanceOptimization**: Integration performance optimization for scalability
+  - **↔ AppSourcePublishing**: Integration compliance requirements for marketplace
+
+#### Quality Assurance Dependencies
+- **TestingValidation** ← **CoreDevelopment**: Testing validates development patterns and implementations
+  - Object structures enable comprehensive test coverage and validation scenarios
+  - Business logic provides test cases and quality validation opportunities
+  - Development standards support automated testing and quality assurance processes
+
+- **TestingValidation** → **PerformanceOptimization**: Testing provides baseline metrics for optimization
+  - Performance test results identify optimization opportunities and priorities
+  - Quality validation ensures optimizations maintain functionality and reliability
+  - Test automation supports continuous optimization and quality monitoring
+
+#### Optimization and Publishing Dependencies
+- **PerformanceOptimization** ← **Multiple Workflows**: Optimization builds on foundation quality
+  - **← CoreDevelopment**: Quality objects provide optimization baseline and opportunities
+  - **← TestingValidation**: Performance metrics guide optimization priorities and validation
+  - **← IntegrationDeployment**: Integration performance optimization for external systems
+
+- **AppSourcePublishing** ← **All Workflows**: Marketplace publishing requires comprehensive quality
+  - **← CoreDevelopment**: Professional code quality meets marketplace standards
+  - **← TestingValidation**: Comprehensive testing demonstrates application reliability
+  - **← IntegrationDeployment**: Accessibility and integration compliance for marketplace
+  - **← PerformanceOptimization**: Performance benchmarks meet marketplace requirements
+
+### Development Flow and Workflow Transitions
+
+#### Sequential Development Process
+1. **Foundation Phase**: Start with [SharedGuidelines/Configuration/core-principles](SharedGuidelines/Configuration/core-principles.instructions.md)
+   - Establish development philosophy and quality objectives
+   - Configure AI assistant settings for optimal development support
+   - Review standards and conventions for consistent application
+
+2. **Development Phase**: Use [CoreDevelopment](CoreDevelopment/) with [SharedGuidelines/Standards](SharedGuidelines/Standards/)
+   - Implement objects and business logic following established patterns
+   - Apply naming conventions and code style standards consistently
+   - Integrate error handling patterns throughout implementation
+
+3. **Quality Assurance Phase**: Apply [TestingValidation](TestingValidation/) processes
+   - Validate development work through comprehensive testing strategies
+   - Apply quality validation processes and compliance checking
+   - Generate test data and validate business logic implementations
+
+4. **Integration Phase**: Follow [IntegrationDeployment](IntegrationDeployment/) when needed
+   - Implement API patterns and external system connectivity
+   - Apply accessibility standards for inclusive user experience
+   - Validate integration patterns and deployment readiness
+
+5. **Optimization Phase**: Use [PerformanceOptimization](PerformanceOptimization/) for performance tuning
+   - Profile application performance and identify optimization opportunities
+   - Apply performance optimization patterns while maintaining quality standards
+   - Monitor and validate performance improvements against established baselines
+
+6. **Publishing Phase**: Complete [AppSourcePublishing](AppSourcePublishing/) for marketplace
+   - Validate comprehensive compliance with AppSource technical requirements
+   - Prepare documentation and support processes for marketplace submission
+   - Ensure all previous workflow outputs meet marketplace quality standards
+
+### Detailed Transition Points and Integration Guidance
+
+#### CoreDevelopment → TestingValidation Transition
+**Prerequisites for Transition:**
+- [ ] Objects implemented following SharedGuidelines naming conventions
+- [ ] Business logic complete with proper error handling patterns
+- [ ] Code style standards applied consistently throughout implementation
+- [ ] Development documentation complete and up-to-date
+
+**Transition Process:**
+1. **Quality Validation Preparation**: Review code against SharedGuidelines standards
+2. **Test Strategy Planning**: Identify testing scenarios based on business logic complexity
+3. **Test Data Generation**: Create test data following established prefixing patterns
+4. **Validation Execution**: Apply systematic testing and quality validation processes
+
+#### TestingValidation → PerformanceOptimization Transition
+**Prerequisites for Transition:**
+- [ ] Comprehensive testing completed with documented results and coverage
+- [ ] Quality validation passed with acceptable metrics and compliance
+- [ ] Performance baseline established through testing processes
+- [ ] Test automation implemented for regression prevention
+
+**Transition Process:**
+1. **Performance Analysis**: Review test results to identify optimization opportunities
+2. **Baseline Documentation**: Establish current performance metrics for comparison
+3. **Optimization Planning**: Prioritize optimization work based on test-identified bottlenecks
+4. **Validation Strategy**: Plan performance validation approach maintaining quality standards
+
+#### Cross-Workflow Integration Best Practices
+
+#### Shared Component Usage Patterns
+- **Naming Conventions**: Applied systematically across all objects, procedures, and components
+  - CoreDevelopment: Object and procedure naming for clarity and consistency
+  - TestingValidation: Test object naming with appropriate prefixes for isolation
+  - IntegrationDeployment: API and integration component naming for external clarity
+  - PerformanceOptimization: Maintaining naming clarity during optimization work
+  - AppSourcePublishing: Enhanced naming standards for marketplace compliance
+
+- **Error Handling Standards**: Consistent exception management across all development phases
+  - CoreDevelopment: Business logic error handling and user experience protection
+  - TestingValidation: Test failure scenarios and validation error management
+  - IntegrationDeployment: Integration error handling and external system resilience
+  - PerformanceOptimization: Performance-focused error handling with minimal overhead
+  - AppSourcePublishing: User-friendly error messages and marketplace-appropriate handling
+
+#### Integration Architecture Principles
+- **Single Source of Truth**: SharedGuidelines provides authoritative standards referenced by all workflows
+- **Workflow Connectivity**: Each workflow provides outputs that inform and enable subsequent workflows
+- **Quality Progression**: Quality standards increase progressively through workflow phases
+- **Comprehensive Coverage**: Integration considerations apply throughout entire development lifecycle
+
+### Standards Application Across Workflows
+- **Universal Standards**: SharedGuidelines standards apply to every workflow without exception
+- **Progressive Enhancement**: Standards application becomes more rigorous toward marketplace publishing
+- **Consistent Reference**: All workflows reference SharedGuidelines for authoritative guidance
+- **Quality Maintenance**: Standards compliance maintained throughout optimization and enhancement phases
+
+## Integration Best Practices
+
+For comprehensive guidance on implementing workflow integration effectively, see the [Workflow Integration Best Practices Guide](WORKFLOW_INTEGRATION_BEST_PRACTICES.md) which provides:
+
+- **Detailed Integration Patterns**: Complete examples of workflow connectivity and communication
+- **Practical Implementation Examples**: Real-world scenarios demonstrating integrated workflow application
+- **Quality Gate Guidelines**: Effective validation approaches for workflow transitions
+- **Common Integration Challenges**: Solutions for typical integration problems and approaches
+- **Cross-Workflow Standards Usage**: Detailed patterns for consistent standards application
+
+The integration guide complements individual workflow documentation by providing the holistic view necessary for professional AL development methodology implementation.
 
 ## File Organization Benefits
 
