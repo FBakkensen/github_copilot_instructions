@@ -50,12 +50,90 @@ This workflow addresses the following AL development areas:
 
 ## Integration Points
 
-### Related Workflows
+## Integration Points
+
+### Workflow Dependencies
+
+#### Incoming Dependencies
 - **CoreDevelopment**: Foundation patterns used in integration development
-- **TestingValidation**: Integration testing strategies and validation approaches
-- **PerformanceOptimization**: Performance tuning for integration scenarios
-- **AppSourcePublishing**: Accessibility and integration compliance for marketplace
+  - Object structures and business logic provide integration endpoints and data sources
+  - Standard coding patterns facilitate API development and external system connectivity
+  - Proper object design supports integration architecture and external system interfaces
+  - Quality development practices ensure reliable integration implementation
+
 - **SharedGuidelines**: Error handling, naming conventions, and coding standards
+  - Naming conventions ensure consistent integration object and component naming
+  - Error handling patterns provide robust exception management for integration scenarios
+  - Code style standards maintain readable and maintainable integration implementations
+  - Core principles guide integration architecture decisions and external system connectivity
+
+#### Outgoing Dependencies
+- **TestingValidation**: Integration testing strategies and validation approaches
+  - Integration patterns inform comprehensive testing strategies for external system connectivity
+  - API testing patterns support validation of integration endpoints and data exchange
+  - Accessibility implementation requires testing validation for compliance verification
+  - Integration error handling provides test scenarios for exception management validation
+
+- **PerformanceOptimization**: Performance tuning for integration scenarios
+  - Integration patterns inform performance optimization for external system connectivity
+  - API optimization patterns improve integration response times and throughput
+  - Database integration optimization reduces resource usage and improves scalability
+  - Background processing patterns support performance optimization for long-running integrations
+
+- **AppSourcePublishing**: Accessibility and integration compliance for marketplace
+  - Accessibility standards implementation ensures AppSource compliance requirements
+  - Integration patterns demonstrate marketplace-appropriate external system connectivity
+  - API documentation and integration guides support AppSource submission requirements
+  - Deployment patterns ensure marketplace-ready installation and configuration processes
+
+### Transition Points
+- **From CoreDevelopment**: Apply integration patterns to existing object implementations
+  - Use well-structured objects as foundation for API development and external connectivity
+  - Apply standard coding patterns to integration scenarios and external system interfaces
+  - Leverage proper object design for reliable integration architecture and data exchange
+  - Maintain code quality standards during integration development and implementation
+
+- **To TestingValidation**: Validate integration patterns and accessibility implementations
+  - Test integration endpoints and external system connectivity thoroughly
+  - Validate accessibility implementations against compliance standards and requirements
+  - Apply comprehensive testing to API functionality and error handling scenarios
+  - Document integration testing results and accessibility compliance validation
+
+- **To PerformanceOptimization**: Optimize integration performance and external system efficiency
+  - Profile integration performance and identify optimization opportunities
+  - Apply performance optimization patterns to API functionality and external connectivity
+  - Optimize database integration and reduce resource usage for scalable implementations
+  - Implement background processing patterns for efficient long-running integration operations
+
+### Cross-Workflow Integration Touchpoints
+
+#### Universal Integration Applications
+- **All Development Phases**: Integration considerations apply throughout AL development lifecycle
+  - **Design Phase**: Integration architecture planning during CoreDevelopment object design
+  - **Implementation Phase**: API patterns and external connectivity during development
+  - **Testing Phase**: Integration testing validation during TestingValidation processes
+  - **Optimization Phase**: Integration performance tuning during PerformanceOptimization
+  - **Publishing Phase**: Integration compliance validation during AppSourcePublishing
+
+#### Accessibility Cross-Workflow Standards
+- **CoreDevelopment**: Accessible object design and user interface patterns
+- **TestingValidation**: Accessibility testing and compliance validation
+- **PerformanceOptimization**: Performance optimization with accessibility preservation
+- **AppSourcePublishing**: Accessibility compliance for marketplace requirements
+
+### Shared Component Usage
+- **Error Handling Patterns**: Enhanced for integration scenarios and external system connectivity
+- **Naming Conventions**: Applied to integration objects, APIs, and external system interfaces
+- **Code Style Standards**: Maintained in integration implementations for consistency and maintainability
+- **Accessibility Standards**: Applied systematically across all user interface components and interactions
+
+### Cross-References
+- See `SharedGuidelines/Standards/` for: Error handling, naming conventions, and coding standards
+- See `SharedGuidelines/Configuration/` for: Core principles guiding integration decisions
+- Reference `CoreDevelopment/` for: Foundation patterns used in integration development
+- Reference `TestingValidation/` for: Integration testing strategies and validation approaches
+- Reference `PerformanceOptimization/` for: Performance tuning for integration scenarios
+- Reference `AppSourcePublishing/` for: Accessibility and integration compliance for marketplace
 
 ## Quick Reference
 
