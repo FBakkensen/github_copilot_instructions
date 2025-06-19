@@ -5,6 +5,18 @@ applyTo: '**/*.al'
 
 This document outlines the basic coding standards, patterns, and style guidelines for AL development in Business Central.
 
+## Table of Contents
+
+1. [Basic Coding Standards](#basic-coding-standards)
+2. [AL Development Patterns](#al-development-patterns)
+3. [Coding Style](#coding-style)
+4. [Tooltips](#tooltips)
+5. [Prefix Guidelines](#prefix-guidelines)
+6. [Numbering](#numbering)
+7. [Text Constants and Localization](#text-constants-and-localization)
+8. [Search Keywords](#search-keywords)
+9. [Cross-References](#cross-references)
+
 ## Basic Coding Standards
 
 1. Use PascalCase for public and private members (objects, fields, methods)
@@ -82,3 +94,36 @@ This document outlines the basic coding standards, patterns, and style guideline
       ErrorMessage := StrSubstNo(TypeMismatchErr, Format(CustomFieldType), Format(TargetFieldType));
   end;
   ```
+
+## Search Keywords
+
+### AL Language Keywords
+**Coding Standards**: PascalCase, object naming, field naming, method naming, AL style guide
+**Object Development**: Table creation, page layout, codeunit architecture, object IDs, numbering
+**Code Patterns**: Extension model, event programming, business logic encapsulation
+
+### Business Central Concepts
+**Development Standards**: Coding patterns, style guidelines, prefix requirements, AppSource compliance
+**Object Structure**: Table fields, page controls, codeunit procedures, object properties
+**Localization**: Text constants, labels, multilingual support, user interface text
+
+### Development Patterns
+**Code Quality**: Consistent formatting, readable code, maintainable structure, documentation
+**Best Practices**: AL development patterns, Microsoft guidelines, quality standards
+**Project Standards**: Naming conventions, numbering schemes, prefix guidelines, team consistency
+
+## Cross-References
+
+### Related SharedGuidelines
+- **Naming Conventions**: `SharedGuidelines/Standards/naming-conventions.instructions.md` - Detailed naming rules and patterns
+- **Code Style**: `SharedGuidelines/Standards/code-style.instructions.md` - Comprehensive formatting guidelines
+- **Error Handling**: `SharedGuidelines/Standards/error-handling.instructions.md` - Text constant and error message patterns
+
+### Related CoreDevelopment Files
+- **AL Development Guide**: `CoreDevelopment/al-development-guide.instructions.md` - Comprehensive development standards
+- **Object Patterns**: `CoreDevelopment/object-patterns.instructions.md` - Specific object creation patterns
+
+### Workflow Applications
+- **TestingValidation**: Apply coding standards to test code development
+- **PerformanceOptimization**: Maintain standards while implementing optimizations
+- **AppSourcePublishing**: Ensure standards compliance for marketplace requirements

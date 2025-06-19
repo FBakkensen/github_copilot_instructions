@@ -5,6 +5,17 @@ applyTo: '**/*.al'
 
 This document outlines best practices for error handling in Business Central AL code.
 
+## Table of Contents
+
+1. [Actionable Error Handling](#actionable-error-handling)
+2. [Implementation Examples](#implementation-examples)
+   - [Actionable Error Messages](#actionable-error-messages)
+   - [Structured Error Handling](#structured-error-handling)
+   - [User-Friendly Messages](#user-friendly-messages)
+3. [Error Prevention Strategies](#error-prevention-strategies)
+4. [Search Keywords](#search-keywords)
+5. [Cross-References](#cross-references)
+
 ## Actionable Error Handling
 
 1. Always use actionable error handling that helps users understand and resolve issues. Error messages should:
@@ -96,3 +107,33 @@ Always log significant errors for diagnostics and troubleshooting. This helps wi
 - Understanding error patterns
 - Improving application stability
 - Providing better customer support
+
+## Search Keywords
+
+### AL Language Keywords
+**Error Handling**: Error, Message, Confirm, StrMenu, TestField, exception handling, try/catch patterns
+**User Experience**: Actionable errors, user guidance, error messages, confirmation dialogs
+**AL Syntax**: Error procedures, message functions, user interaction, dialog boxes
+
+### Business Central Concepts
+**Error Management**: Error prevention, validation, data integrity, business rules enforcement
+**User Interface**: User-friendly messages, guidance provision, action suggestions, error recovery
+**Application Quality**: Error logging, diagnostics, troubleshooting, stability improvement
+
+### Development Patterns
+**Best Practices**: Actionable error handling, meaningful messages, context provision, error prevention
+**Code Quality**: Proper error handling, user experience optimization, maintainable error patterns
+**Quality Assurance**: Error validation, testing error scenarios, error message standards
+
+## Cross-References
+
+### Related SharedGuidelines
+- **Code Style**: `SharedGuidelines/Standards/code-style.instructions.md` - Text constant formatting and error message style
+- **Naming Conventions**: `SharedGuidelines/Standards/naming-conventions.instructions.md` - Error variable and message naming
+- **Core Principles**: `SharedGuidelines/Configuration/core-principles.instructions.md` - Quality and user experience principles
+
+### Workflow Applications
+- **CoreDevelopment**: Implementation of error handling in object development
+- **TestingValidation**: Error handling validation and testing error scenarios
+- **PerformanceOptimization**: Error handling performance considerations
+- **AppSourcePublishing**: Error handling compliance for marketplace requirements

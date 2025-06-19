@@ -5,6 +5,17 @@ applyTo: '**/*.al'
 
 This document outlines specific guidelines for different object types in Business Central AL code.
 
+## Table of Contents
+
+1. [Tables and Table Extensions](#tables-and-table-extensions)
+2. [Pages and Page Extensions](#pages-and-page-extensions)
+3. [Codeunits](#codeunits)
+4. [Reports and Report Extensions](#reports-and-report-extensions)
+5. [XMLPorts](#xmlports)
+6. [Queries](#queries)
+7. [Search Keywords](#search-keywords)
+8. [Cross-References](#cross-references)
+
 ## Tables and Table Extensions
 
 - All fields must include a tooltip
@@ -103,3 +114,36 @@ codeunit 50100 "My Functionality"
 - Document the purpose and usage of the query
 - Consider using queries for complex data retrieval operations
 - Implement proper security filtering
+
+## Search Keywords
+
+### AL Object Types
+**Tables**: Table creation, field design, data classification, tooltip requirements, table extensions
+**Pages**: Page layout, actions, factboxes, card pages, list pages, page extensions
+**Codeunits**: Business logic, procedures, functions, event handling, utility patterns
+
+### Object Development Patterns
+**Data Design**: Field types, validation, FlowFields, keys, relationships, data integrity
+**User Interface**: Page structure, controls, actions, navigation, user experience design
+**Business Logic**: Codeunit architecture, procedure design, parameter handling, error management
+
+### Business Central Features
+**Extension Model**: Table extensions, page extensions, object numbering, prefix requirements
+**Integration**: Event publishing, event subscription, API development, external system connectivity
+**Quality Standards**: Data classification, tooltip requirements, validation patterns, security considerations
+
+## Cross-References
+
+### Related SharedGuidelines
+- **Naming Conventions**: `SharedGuidelines/Standards/naming-conventions.instructions.md` - Object and field naming patterns
+- **Code Style**: `SharedGuidelines/Standards/code-style.instructions.md` - Formatting and tooltip standards
+- **Error Handling**: `SharedGuidelines/Standards/error-handling.instructions.md` - Validation and error patterns
+
+### Related CoreDevelopment Files
+- **AL Development Guide**: `CoreDevelopment/al-development-guide.instructions.md` - General development principles
+- **Coding Standards**: `CoreDevelopment/coding-standards.instructions.md` - Basic coding patterns and numbering
+
+### Workflow Applications
+- **TestingValidation**: Object-specific testing patterns and validation approaches
+- **PerformanceOptimization**: Object design considerations for optimal performance
+- **AppSourcePublishing**: Object pattern compliance for marketplace requirements

@@ -5,6 +5,24 @@ applyTo: '**/*.al'
 
 This document outlines comprehensive quality validation practices including linter checks, code reviews, and validation processes for AL development in Business Central.
 
+## Table of Contents
+
+### Quick Navigation
+- [Quick Reference](#quick-reference) - Essential quality validation steps and linter fixes
+- [Common Issues](#common-issues) - Typical linter errors and resolution patterns
+- [Troubleshooting](#troubleshooting) - Quality validation problem resolution
+
+### Detailed Content
+1. [Always Check for Linter Errors](#always-check-for-linter-errors)
+2. [Steps to Check and Fix Linter Errors](#steps-to-check-and-fix-linter-errors)
+3. [Common Linter Error Examples](#common-linter-error-examples)
+4. [Code Quality Standards](#code-quality-standards)
+5. [Validation Processes](#validation-processes)
+6. [Quality Gates](#quality-gates)
+7. [Performance Considerations](#performance-considerations)
+8. [Search Keywords](#search-keywords)
+9. [Cross-References](#cross-references)
+
 ## Always Check for Linter Errors
 
 Before completing any code changes, always check for and fix linter errors in the affected files. This ensures that the code follows AL best practices and coding standards.
@@ -245,3 +263,61 @@ Maintain comprehensive documentation:
 - **Architecture Documentation**: Maintain system overview
 
 By following these quality validation guidelines, you'll maintain high code quality and consistency throughout the project.
+
+## Quick Reference
+
+### Essential Quality Validation Steps
+1. **Run Diagnostics**: Always check for linter errors before completing changes
+2. **Fix Common Issues**: Remove unused variables, order declarations, use proper BEGIN..END
+3. **Apply Standards**: Follow code style guidelines and naming conventions consistently
+4. **Test Thoroughly**: Validate all changes with comprehensive testing
+5. **Document Changes**: Maintain clear documentation for complex logic
+
+### Common Linter Fixes
+```al
+// Variable ordering (Record types first)
+var
+    Customer: Record Customer;
+    SalesHeader: Record "Sales Header";  
+    TotalAmount: Decimal;  // Simple types after complex types
+
+// Proper IF formatting
+if Condition1 then
+    Statement1
+else
+if Condition2 then
+    Statement2;
+```
+
+## Search Keywords
+
+### Quality Validation Keywords
+**Linter Checks**: Diagnostics, code analysis, AL linter, error checking, code validation, quality gates
+**Code Quality**: Best practices, coding standards, maintainability, readability, consistency
+**Validation Process**: Quality assurance, code review, testing validation, compliance checking
+
+### AL Development Quality
+**Error Resolution**: Common linter errors, variable ordering, BEGIN/END usage, IF statement formatting
+**Code Standards**: AL style guide, naming conventions, formatting rules, documentation standards
+**Testing Integration**: Test validation, quality gates, coverage requirements, performance benchmarks
+
+### Development Process
+**Quality Assurance**: Validation procedures, quality control, code inspection, standards compliance
+**Continuous Improvement**: Code quality metrics, performance monitoring, documentation maintenance
+**Team Standards**: Consistent quality practices, shared validation approaches, quality culture
+
+## Cross-References
+
+### Related SharedGuidelines
+- **Code Style**: `SharedGuidelines/Standards/code-style.instructions.md` - Formatting and style standards for validation
+- **Naming Conventions**: `SharedGuidelines/Standards/naming-conventions.instructions.md` - Variable and object naming validation
+- **Error Handling**: `SharedGuidelines/Standards/error-handling.instructions.md` - Error handling quality patterns
+
+### Related TestingValidation Files
+- **Testing Strategy**: `TestingValidation/testing-strategy.instructions.md` - Comprehensive testing for quality validation
+- **Test Data Patterns**: `TestingValidation/test-data-patterns.instructions.md` - Test data quality and validation
+
+### Workflow Applications
+- **CoreDevelopment**: Apply quality validation during object development
+- **PerformanceOptimization**: Maintain quality standards during optimization
+- **AppSourcePublishing**: Ensure quality compliance for marketplace requirements

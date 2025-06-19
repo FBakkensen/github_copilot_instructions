@@ -5,6 +5,24 @@ applyTo: '**/*.al'
 
 This document outlines the comprehensive naming conventions for variables, parameters, and objects in Business Central AL code to ensure consistency and maintainability across all development workflows.
 
+## Table of Contents
+
+1. [General Naming Guidelines](#general-naming-guidelines)
+2. [Variables and Parameters](#variables-and-parameters)
+   - [Record Variables](#record-variables)
+   - [Page Variables](#page-variables)
+   - [Multiple Variables of Same Type](#multiple-variables-of-same-type)
+   - [Parameter Declaration](#parameter-declaration)
+   - [Variable Ordering](#variable-ordering)
+3. [Object Naming](#object-naming)
+   - [Tables and Fields](#tables-and-fields)
+   - [Pages](#pages)
+   - [Codeunits](#codeunits)
+   - [Reports](#reports)
+4. [Prefix Guidelines](#prefix-guidelines)
+5. [Search Keywords](#search-keywords)
+6. [Cross-References](#cross-references)
+
 ## General Naming Guidelines
 
 - Use PascalCase for all identifiers (objects, variables, parameters, methods)
@@ -98,3 +116,33 @@ CustomerOld: Record Customer;
 5. The prefix is always followed by a space
 6. The prefix is always just once in the object name
 7. The prefix is always in the beginning of the object name
+
+## Search Keywords
+
+### AL Language Keywords
+**Variables and Parameters**: Record variables, Page variables, PascalCase, variable naming, parameter declaration, variable ordering
+**Object Types**: Table, Page, Codeunit, Report, XML port, Query, object naming patterns
+**AL Syntax**: Begin/End, procedure, trigger, field naming, object properties
+
+### Business Central Concepts  
+**Development Standards**: Naming conventions, code consistency, maintainability, AL best practices
+**Object Architecture**: Table design, page structure, codeunit patterns, report naming
+**Extension Development**: AppSource compliance, prefix requirements, object numbering
+
+### Development Patterns
+**Naming Patterns**: PascalCase, descriptive naming, meaningful suffixes, consistent terminology
+**Code Organization**: Variable ordering, parameter declaration, object structure
+**Quality Standards**: Code maintainability, readability, AL programming standards
+
+## Cross-References
+
+### Related SharedGuidelines
+- **Code Style**: `SharedGuidelines/Standards/code-style.instructions.md` - Formatting and style guidelines
+- **Error Handling**: `SharedGuidelines/Standards/error-handling.instructions.md` - Error naming patterns
+- **Core Principles**: `SharedGuidelines/Configuration/core-principles.instructions.md` - Development foundation
+
+### Workflow Applications
+- **CoreDevelopment**: Object creation and variable naming implementation
+- **TestingValidation**: Test object and test data naming conventions  
+- **PerformanceOptimization**: Variable naming for optimized code patterns
+- **AppSourcePublishing**: Compliance with AppSource naming requirements

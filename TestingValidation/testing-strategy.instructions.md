@@ -5,6 +5,27 @@ applyTo: '**/*.al'
 
 This document outlines comprehensive testing strategies and best practices for AL development in Business Central.
 
+## Table of Contents
+
+### Quick Navigation
+- [Quick Reference](#quick-reference) - Essential testing patterns and Arrange-Act-Assert structure
+- [Common Scenarios](#common-scenarios) - Typical testing use cases and patterns
+- [Troubleshooting](#troubleshooting) - Test failure resolution and debugging
+
+### Detailed Content
+1. [Core Testing Principles](#core-testing-principles)
+2. [Test Design Patterns](#test-design-patterns)
+   - [Test Structure (Arrange-Act-Assert)](#test-structure-arrange-act-assert)
+   - [Test Data Management](#test-data-management)
+   - [Test Isolation](#test-isolation)
+3. [Unit Testing Strategies](#unit-testing-strategies)
+4. [Integration Testing Approaches](#integration-testing-approaches)
+5. [Performance Testing Guidelines](#performance-testing-guidelines)
+6. [Test Automation](#test-automation)
+7. [Test Coverage Requirements](#test-coverage-requirements)
+8. [Search Keywords](#search-keywords)
+9. [Cross-References](#cross-references)
+
 ## Core Testing Principles
 
 - There should be no comments in the code about refactoring
@@ -258,3 +279,69 @@ end;
 4. **Fast Execution**: Design tests to run quickly to encourage frequent execution
 5. **Deterministic Results**: Tests should always produce the same result given the same input
 6. **Clear Error Messages**: When tests fail, the error message should clearly indicate what went wrong
+
+## Quick Reference
+
+### Essential Testing Patterns
+- **Arrange-Act-Assert**: Structure all tests with clear setup, execution, and verification phases
+- **Test Data Prefixing**: Use 'X' prefix for all Code and Text fields in test data
+- **Test Isolation**: Ensure tests don't depend on each other or external state
+- **Meaningful Names**: Test procedure names should clearly describe what is being tested
+
+### Common Test Structure
+```al
+[Test]
+procedure TestCustomerValidation()
+var
+    Customer: Record Customer;
+begin
+    // Arrange
+    CreateTestCustomer(Customer);
+    
+    // Act
+    Customer.Validate(Name, '');
+    
+    // Assert
+    asserterror Customer.Insert(true);
+end;
+```
+
+### Test Data Management
+```al
+// Always use X prefix for test data
+Customer."No." := 'XTEST001';
+Customer.Name := 'XTest Customer';
+```
+
+## Search Keywords
+
+### Testing Methodology
+**Test Patterns**: Arrange-Act-Assert, test structure, unit testing, integration testing, test design patterns
+**Test Management**: Test automation, test coverage, test execution, test maintenance, test documentation
+**AL Testing**: Test codeunits, test procedures, test data, test libraries, AL test framework
+
+### Quality Assurance
+**Test Strategy**: Testing approach, test planning, test scenarios, test case design, test validation
+**Test Quality**: Test reliability, test performance, test maintainability, test effectiveness
+**Development Testing**: Developer testing, automated testing, continuous testing, test-driven development
+
+### Business Central Testing
+**Extension Testing**: AL extension testing, AppSource testing requirements, test environment setup
+**Test Framework**: Business Central test framework, test runner, test automation tools
+**Test Integration**: CI/CD testing, automated test execution, test pipeline integration
+
+## Cross-References
+
+### Related TestingValidation Files
+- **Test Data Patterns**: `TestingValidation/test-data-patterns.instructions.md` - Detailed X prefix requirements and data generation
+- **Quality Validation**: `TestingValidation/quality-validation.instructions.md` - Quality gates and validation processes
+
+### Related SharedGuidelines
+- **Code Style**: `SharedGuidelines/Standards/code-style.instructions.md` - Test code formatting and style standards
+- **Naming Conventions**: `SharedGuidelines/Standards/naming-conventions.instructions.md` - Test procedure and variable naming
+- **Error Handling**: `SharedGuidelines/Standards/error-handling.instructions.md` - Error handling in test scenarios
+
+### Workflow Applications
+- **CoreDevelopment**: Testing strategies for object development validation
+- **PerformanceOptimization**: Performance testing and validation approaches
+- **AppSourcePublishing**: Testing requirements for marketplace compliance
