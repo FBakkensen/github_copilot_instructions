@@ -5,6 +5,25 @@ applyTo: '**/*.al'
 
 This document outlines comprehensive patterns and best practices for generating test data in Business Central AL test libraries and test codeunits.
 
+## Table of Contents
+
+### Quick Navigation
+- [Quick Reference](#quick-reference) - Essential test data rules and X prefix requirements
+- [Common Patterns](#common-patterns) - Typical test data generation scenarios
+- [Troubleshooting](#troubleshooting) - Test data conflict resolution
+
+### Detailed Content
+1. [Test Data Prefixing Requirements](#test-data-prefixing-requirements)
+   - [Code and Text Field Prefixes](#code-and-text-field-prefixes)
+   - [Best Practices for Prefixing](#best-practices-for-prefixing)
+2. [Test Data Generation Patterns](#test-data-generation-patterns)
+3. [Data Isolation Strategies](#data-isolation-strategies)
+4. [Test Data Cleanup](#test-data-cleanup)
+5. [Advanced Test Data Scenarios](#advanced-test-data-scenarios)
+6. [Performance Considerations](#performance-considerations)
+7. [Search Keywords](#search-keywords)
+8. [Cross-References](#cross-references)
+
 ## Test Data Prefixing Requirements
 
 ### Code and Text Field Prefixes
@@ -171,3 +190,81 @@ The 'X' prefix requirement does NOT apply to:
 4. **Consistent Testing**: Reduces random test failures due to data conflicts
 
 By following these guidelines, you ensure that test data is properly isolated and won't interfere with existing data or cause unexpected test failures.
+
+## Quick Reference
+
+### Essential Test Data Rules
+- **X Prefix Requirement**: Always prefix Code and Text fields with 'X' in test data
+- **Data Isolation**: Generate unique test data to avoid conflicts with existing records
+- **Cleanup Strategy**: Implement proper test data cleanup after test execution
+- **Consistent Patterns**: Use standardized test data generation patterns across test libraries
+
+### Common Test Data Patterns
+```al
+// Standard test data creation with X prefix
+procedure CreateTestCustomer(var Customer: Record Customer)
+begin
+    Customer.Init();
+    Customer."No." := 'XTEST001';
+    Customer.Name := 'XTest Customer Name';
+    Customer.Address := 'XTest Street 123';
+    Customer.Insert(true);
+end;
+
+// Test data cleanup pattern
+procedure CleanupTestData()
+begin
+    Customer.SetFilter("No.", 'X*');
+    Customer.DeleteAll();
+end;
+```
+
+## Search Keywords
+
+### Test Data Generation
+**Data Patterns**: Test data creation, X prefix requirement, data isolation, test libraries, test codeunits
+**Test Management**: Test data cleanup, data conflicts prevention, test data organization
+**AL Testing**: Test procedures, test scenarios, test data generation patterns, test libraries
+
+### Quality Assurance
+**Data Integrity**: Test data validation, data consistency, conflict prevention, data isolation strategies
+**Testing Standards**: Test data standards, X prefixing rules, test data best practices
+**Test Reliability**: Consistent test data, reproducible tests, test environment management
+
+### Business Central Testing
+**Test Framework**: AL test framework, test codeunit patterns, test library design, test data setup
+**Extension Testing**: Test data for extensions, AppSource testing requirements, test environment setup
+**Development Testing**: Unit testing data, integration testing data, test scenario preparation
+
+## Search Keywords
+
+### Test Data Generation
+**Data Patterns**: Test data creation, X prefix requirement, data isolation, test libraries, test codeunits
+**Test Management**: Test data cleanup, data conflicts prevention, test data organization
+**AL Testing**: Test procedures, test scenarios, test data generation patterns, test libraries
+
+### Quality Assurance  
+**Data Integrity**: Test data validation, data consistency, conflict prevention, data isolation strategies
+**Testing Standards**: Test data standards, X prefixing rules, test data best practices
+**Test Reliability**: Consistent test data, reproducible tests, test environment management
+
+### Business Central Testing
+**Test Framework**: AL test framework, test codeunit patterns, test library design, test data setup
+**Extension Testing**: Test data for extensions, AppSource testing requirements, test environment setup
+**Development Testing**: Unit testing data, integration testing data, test scenario preparation
+
+## Cross-References
+
+### Related SharedGuidelines
+- **Naming Conventions**: `SharedGuidelines/Standards/naming-conventions.instructions.md` - Test object and variable naming
+- **Code Style**: `SharedGuidelines/Standards/code-style.instructions.md` - Test code formatting and style
+- **Error Handling**: `SharedGuidelines/Standards/error-handling.instructions.md` - Error handling in test scenarios
+
+### Related TestingValidation Files
+- **Testing Strategy**: `TestingValidation/testing-strategy.instructions.md` - Overall testing approach and methodology
+- **Quality Validation**: `TestingValidation/quality-validation.instructions.md` - Test data quality validation
+
+### Workflow Applications
+- **CoreDevelopment**: Test data generation for object development validation
+- **PerformanceOptimization**: Test data patterns for performance testing scenarios
+- **AppSourcePublishing**: Test data compliance for marketplace testing requirements
