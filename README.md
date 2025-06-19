@@ -1,284 +1,270 @@
-# AL Development Instructions for Business Central
-
-This folder contains a comprehensive collection of instruction files that define coding standards, best practices, and guidelines for AL development in Microsoft Dynamics 365 Business Central. These instructions are designed to be used by AI assistants and developers to ensure consistent, high-quality code development.
+# AL/Business Central GitHub Copilot Instructions
 
-## Folder Structure Overview
+## Overview
 
-The instructions are organized into focused, modular files that cover different aspects of AL development:
+This repository provides comprehensive, workflow-based AL development guidelines for Microsoft Dynamics 365 Business Central development. The instructions are organized by development workflows to create meaningful organization, good indexes, and eliminate duplicate content while maintaining GitHub Copilot accessibility.
 
-```
-prompts/
-├── README.md                                    # This file - documentation and guidelines
-├── instructions.instructions.md                 # Main entry point and core principles
-├── general_instructions.instructions.md         # General AI assistant guidelines
-├── al_code.instructions.md                      # Comprehensive AL coding guide (consolidated)
-├── al_code_style.instructions.md                # Detailed code style and formatting guidelines
-├── coding-standards.instructions.md             # Basic coding standards and patterns
-├── naming-conventions.instructions.md           # Variable and object naming rules
-├── object-specific-guidelines.instructions.md   # Guidelines for specific AL object types
-├── error-handling.instructions.md               # Error handling best practices
-├── performance-optimization.instructions.md     # Performance optimization guidelines
-├── integration-standards.instructions.md        # Business Central integration standards
-├── linter_check.instructions.md                 # Linter checking procedures
-├── appsource-requirements.instructions.md       # AppSource publication requirements
-├── tddflow.instructions.md                      # Test-driven development flow
-└── test-data-generation.instructions.md         # Test data generation guidelines
-```
-
-## File Descriptions
+### What This Repository Provides
 
-### Core Foundation Files
+- **Workflow-Based Organization**: Guidelines organized by development lifecycle phases
+- **Meaningful File Names**: Descriptive, purpose-driven naming for enhanced discoverability  
+- **Single Source of Truth**: Eliminated duplication with cross-references to shared standards
+- **GitHub Copilot Integration**: All instruction files optimized for AI assistant accessibility
+- **Comprehensive Navigation**: Multiple pathways to find relevant guidance quickly
 
-#### `instructions.instructions.md`
-- **Purpose**: Main entry point that establishes the role and core principles
-- **Scope**: Applies to all AL files (`**/*.al`)
-- **Content**: Core development principles, reference to Microsoft documentation
+## Quick Start Guide
 
-#### `general_instructions.instructions.md`
-- **Purpose**: High-level guidelines for AI assistants
-- **Content**: Code quality standards, project structure guidelines, implementation workflow
+### For New Users
 
-### Comprehensive Reference
+1. **Understand the Structure**: Review the [Workflow-Based Organization](#workflow-based-organization) below
+2. **Choose Your Starting Point**: Navigate to the workflow that matches your current development phase
+3. **Reference Standards**: Check [SharedGuidelines](#-sharedguidelines) for cross-cutting standards that apply to all workflows
+4. **Follow the Flow**: Use workflow integration guidance to transition between development phases
 
-#### `al_code.instructions.md`
-- **Purpose**: Consolidated comprehensive guide containing most AL coding standards
-- **Content**: Complete reference including code style, standards, naming conventions, object guidelines, error handling, performance, and more
-- **Note**: This is a comprehensive file that consolidates content from multiple other files
+### For Specific Tasks
 
-### Code Quality and Standards
+**Starting a New Project:**
+1. Begin with [SharedGuidelines/Configuration/core-principles](SharedGuidelines/Configuration/core-principles.instructions.md)
+2. Move to [CoreDevelopment](CoreDevelopment/) for AL fundamentals
+3. Apply [SharedGuidelines/Standards](SharedGuidelines/Standards/) throughout development
 
-#### `coding-standards.instructions.md`
-- **Purpose**: Basic coding standards and development patterns
-- **Content**: PascalCase conventions, extension model usage, modular design principles, telemetry implementation
+**Adding Tests:**
+1. Review [CoreDevelopment](CoreDevelopment/) patterns being tested
+2. Follow [TestingValidation/testing-strategy](TestingValidation/testing-strategy.instructions.md)
+3. Use [SharedGuidelines/Standards](SharedGuidelines/Standards/) for consistent test code
 
-#### `al_code_style.instructions.md`
-- **Purpose**: Detailed code formatting and style guidelines
-- **Content**: Variable naming, code formatting, indentation, data types (enums vs options), string formatting, performance considerations
+**Performance Issues:**
+1. Check [PerformanceOptimization](PerformanceOptimization/) for optimization techniques
+2. Reference [CoreDevelopment/object-patterns](CoreDevelopment/object-patterns.instructions.md) for efficient patterns
+3. Validate with [TestingValidation](TestingValidation/) approaches
 
-#### `naming-conventions.instructions.md`
-- **Purpose**: Comprehensive naming rules for all code elements
-- **Content**: Variable naming patterns, object naming conventions, prefix guidelines
+## Workflow-Based Organization
 
-#### `procedure-accessibility.instructions.md`
-- **Purpose**: Rules for procedure accessibility to ensure testability and encapsulation
-- **Content**: Guidelines on using `internal` for procedures, prohibition of `local` procedures, rationale for test app access
+### 🏗️ CoreDevelopment
+**Purpose**: AL language fundamentals and object development patterns
+- [`al-development-guide.instructions.md`](CoreDevelopment/al-development-guide.instructions.md) - Comprehensive AL language guidance and development practices
+- [`coding-standards.instructions.md`](CoreDevelopment/coding-standards.instructions.md) - Code structure and formatting standards
+- [`object-patterns.instructions.md`](CoreDevelopment/object-patterns.instructions.md) - Table, page, codeunit, and other AL object patterns
 
-### Object-Specific Guidelines
+**When to use**: Creating new AL objects, implementing business logic, following AL best practices
 
-#### `object-specific-guidelines.instructions.md`
-- **Purpose**: Guidelines tailored to specific AL object types
-- **Content**:
-  - Tables/Table Extensions: Field tooltips, numbering, data classification
-  - Pages/Page Extensions: Layout rules, action patterns, ApplicationArea settings
-  - Codeunits: SRP principles, event patterns, GUI checking
-  - Reports, XMLPorts, Queries: Best practices for each object type
+### 🧪 TestingValidation
+**Purpose**: Testing strategies and quality assurance processes
+- [`testing-strategy.instructions.md`](TestingValidation/testing-strategy.instructions.md) - Comprehensive testing methodology and frameworks
+- [`test-data-patterns.instructions.md`](TestingValidation/test-data-patterns.instructions.md) - Test data generation and management
+- [`quality-validation.instructions.md`](TestingValidation/quality-validation.instructions.md) - Linting, code review, and validation processes
 
-### Quality Assurance and Testing
+**When to use**: Writing tests, validating code quality, ensuring compliance with standards
 
-#### `linter_check.instructions.md`
-- **Purpose**: Procedures for checking and fixing linter errors
-- **Content**: Step-by-step diagnostics process, common error fixes, examples
+### 🔄 IntegrationDeployment
+**Purpose**: Integration patterns and deployment strategies
+- [`integration-patterns.instructions.md`](IntegrationDeployment/integration-patterns.instructions.md) - Business Central integration and API development
+- [`accessibility-standards.instructions.md`](IntegrationDeployment/accessibility-standards.instructions.md) - Procedure accessibility and testability requirements
+
+**When to use**: Integrating with external systems, deploying extensions, ensuring accessibility
 
-#### `error-handling.instructions.md`
-- **Purpose**: Best practices for error handling and user feedback
-- **Content**: Actionable error messages, TryFunction patterns, error logging
+### ⚡ PerformanceOptimization
+**Purpose**: Performance tuning and optimization techniques
+- [`optimization-guide.instructions.md`](PerformanceOptimization/optimization-guide.instructions.md) - Database performance, UI optimization, and monitoring
 
-#### `tddflow.instructions.md`
-- **Purpose**: Test-driven development guidelines
-- **Content**: Basic rules about clean code without refactoring comments
+**When to use**: Optimizing existing code, improving performance, addressing bottlenecks
 
-#### `test-data-generation.instructions.md`
-- **Purpose**: Guidelines for generating test data in AL test libraries
-- **Content**: 'X' prefix requirements for test data, unique data generation patterns, cleanup strategies, common test data patterns
+### 📦 AppSourcePublishing
+**Purpose**: AppSource marketplace compliance and publishing
+- [`appsource-requirements.instructions.md`](AppSourcePublishing/appsource-requirements.instructions.md) - Marketplace requirements and publishing workflow
+
+**When to use**: Preparing extensions for AppSource, ensuring marketplace compliance
 
-### Performance and Integration
+### 🔗 SharedGuidelines
+**Purpose**: Cross-cutting standards that apply across all workflows
+
+#### [Standards/](SharedGuidelines/Standards/)
+- [`naming-conventions.instructions.md`](SharedGuidelines/Standards/naming-conventions.instructions.md) - Comprehensive naming rules for all AL objects
+- [`code-style.instructions.md`](SharedGuidelines/Standards/code-style.instructions.md) - Code formatting and style guidelines
+- [`error-handling.instructions.md`](SharedGuidelines/Standards/error-handling.instructions.md) - Error handling patterns and best practices
+
+#### [Configuration/](SharedGuidelines/Configuration/)
+- [`core-principles.instructions.md`](SharedGuidelines/Configuration/core-principles.instructions.md) - Fundamental AL development principles
+- [`ai-assistant-guidelines.instructions.md`](SharedGuidelines/Configuration/ai-assistant-guidelines.instructions.md) - GitHub Copilot configuration and behavior
 
-#### `performance-optimization.instructions.md`
-- **Purpose**: Guidelines for optimizing AL code performance
-- **Content**: Database operations, UI performance, background processing, caching strategies
+## Navigation Guide
 
-#### `integration-standards.instructions.md`
-- **Purpose**: Standards for integrating with Business Central and external systems
-- **Content**: UX integration, event-based patterns, API standards, security practices
+### Finding Specific Guidelines
 
-### Publication Requirements
-
-#### `appsource-requirements.instructions.md`
-- **Purpose**: Requirements for AppSource-ready extensions
-- **Content**: App metadata, documentation requirements, technical validation, localization
-
-## Current File Organization Analysis
-
-### Content Overlap and Consolidation Notes
-
-1. **`al_code.instructions.md`** appears to be a comprehensive consolidation file containing content from multiple other files including:
-   - Complete AL code style guidelines
-   - Coding standards
-   - Naming conventions
-   - Object-specific guidelines
-   - Performance optimization
-   - Error handling
-   - Integration standards
-   - AppSource requirements
-
-2. **Specialized vs Consolidated Files**:
-   - Individual files like `al_code_style.instructions.md`, `coding-standards.instructions.md` provide focused, detailed guidance
-   - `al_code.instructions.md` provides a single comprehensive reference
-   - This dual approach allows for both detailed study and quick comprehensive reference
-
-## Guidelines for Adding New Instructions
-
-### Decision Framework
-
-When considering adding new instructions, use this decision framework:
-
-#### Create a New Specialized File When:
-
-1. **New Domain Area**: Introducing guidelines for a completely new area (e.g., API development, security patterns, deployment procedures)
-2. **Substantial Standalone Content**: The new content would be substantial enough (>100 lines) to warrant its own file
-3. **Different Target Audience**: Instructions for different roles (developers vs administrators vs testers)
-4. **Different Scope**: Instructions that apply to different file types or contexts than existing files
-5. **Specialized Workflow**: Documenting a specific development workflow or process that doesn't fit existing categories
-
-#### Extend the Comprehensive File (`al_code.instructions.md`) When:
-
-1. **Core AL Development**: Content directly relates to core AL programming practices
-2. **Universal Application**: Guidelines that apply to all AL development scenarios
-3. **Integration with Existing**: Content that enhances or clarifies existing comprehensive guidelines
-
-#### Extend Existing Specialized Files When:
-
-1. **Related Content**: New guidelines are closely related to existing content in a specific file
-2. **Same Object Type**: Adding guidelines for the same AL object types already covered
-3. **Minor Additions**: Small additions (5-20 lines) that enhance existing guidelines
-4. **Same Scope**: Instructions apply to the same file patterns (`applyTo` scope)
-
-### Content Organization Strategy
-
-Given the current structure with both specialized and comprehensive files:
-
-1. **Maintain Dual Approach**: Keep both detailed specialized files and the comprehensive reference
-2. **Sync Important Changes**: When updating specialized files, consider if the comprehensive file needs similar updates
-3. **Avoid Complete Duplication**: If content exists in the comprehensive file, specialized files can focus on deeper details or specific scenarios
-
-### File Naming Convention
-
-Follow this pattern for new instruction files:
-```
-[domain-area].instructions.md
-```
-
-Examples:
-- `api-development.instructions.md`
-- `security-patterns.instructions.md`
-- `deployment-guidelines.instructions.md`
-- `testing-strategies.instructions.md`
-
-### Required File Structure
-
-Each instruction file must include:
-
-```markdown
----
-applyTo: '**/*.al'  # Define which files this applies to
----
-# [Title]
-
-Brief description of the file's purpose and scope.
-
-## [Section 1]
-Content with practical examples...
-
-## [Section 2]
-More content...
-```
-
-### Content Guidelines
-
-1. **Be Specific**: Include concrete examples and code samples
-2. **Stay Focused**: Keep each file focused on its specific domain
-3. **Use Examples**: Provide both correct and incorrect examples when helpful
-4. **Reference Standards**: Link to official Microsoft documentation when applicable
-5. **Consider AI Context**: Write instructions that AI assistants can easily follow
-
-## Recommended New Instruction Areas
-
-Based on the current structure, consider creating new instruction files for these areas as they become relevant:
-
-### Development Workflow and Process
-- `git-workflow.instructions.md` - Git branching strategies, commit message standards, pull request guidelines
-- `code-review.instructions.md` - Code review checklists, review standards, and approval processes
-- `testing-strategies.instructions.md` - Unit testing patterns, integration testing, test automation
-- `debugging-techniques.instructions.md` - Debugging strategies, troubleshooting procedures, diagnostic tools
-
-### Specialized Development Areas
-- `api-development.instructions.md` - REST API design, OData patterns, API versioning
-- `security-patterns.instructions.md` - Authentication, authorization, data protection, security scanning
-- `localization.instructions.md` - Multi-language support, regional considerations, translation workflows
-- `upgrade-patterns.instructions.md` - Extension upgrade procedures, data migration strategies
-- `custom-controls.instructions.md` - Custom page controls, control add-ins, JavaScript integration
-
-### Architecture and Design
-- `architecture-patterns.instructions.md` - Design patterns, architectural decisions, modular design
-- `data-modeling.instructions.md` - Table design, relationships, data architecture
-- `event-driven-design.instructions.md` - Event publishers/subscribers, event-driven architecture
-
-### Deployment and Operations
-- `deployment-guidelines.instructions.md` - Packaging procedures, versioning strategies, deployment automation
-- `monitoring.instructions.md` - Telemetry implementation, logging strategies, health monitoring
-- `environment-management.instructions.md` - Development, test, and production environment management
-- `configuration-management.instructions.md` - App settings, environment-specific configurations
-
-### Specialized Business Central Areas
-- `web-services.instructions.md` - Web service development, SOAP/REST endpoints
-- `report-development.instructions.md` - Report layouts, data sources, rendering optimization
-- `workflow-development.instructions.md` - Business workflow implementation, approval processes
-- `dimension-handling.instructions.md` - Dimension design, dimension value handling
-- `permission-design.instructions.md` - Permission set design, security model implementation
-
-## Usage by AI Assistants
-
-These instruction files are designed to be consumed by AI assistants to:
-
-1. **Maintain Consistency**: Ensure all generated code follows the same standards across different sessions and contexts
-2. **Provide Deep Context**: Give AI assistants comprehensive understanding of project requirements, Business Central best practices, and coding standards
-3. **Enable Quality Assurance**: Help AI assistants produce high-quality, production-ready code that passes linting and follows best practices
-4. **Support Learning**: Allow AI assistants to understand Business Central patterns, Microsoft conventions, and domain-specific requirements
-5. **Accelerate Development**: Reduce the need for repetitive explanations by encoding knowledge in reusable instruction files
-6. **Ensure Compliance**: Help maintain compliance with AppSource requirements and Microsoft standards
-
-### Best Practices for AI Usage
-
-1. **Reference Multiple Files**: AI assistants should reference both the comprehensive file and relevant specialized files for complete context
-2. **Follow Hierarchical Guidance**: Start with core principles from `instructions.instructions.md`, then apply specific guidelines from relevant specialized files
-3. **Check Linter Requirements**: Always follow the linter checking procedures from `linter_check.instructions.md`
-4. **Maintain Consistency**: Use the naming conventions and coding standards consistently across all generated code
-
-## Maintenance and Evolution
-
-### Regular Maintenance Tasks
-
-- **Quarterly Reviews**: Review instructions for relevance and accuracy as Microsoft releases new AL features
-- **Version Updates**: Update instructions when Microsoft releases significant Business Central updates
-- **Content Synchronization**: Ensure specialized files and the comprehensive file remain aligned
-- **Community Input**: Incorporate feedback and lessons learned from development experience
-- **Documentation Sync**: Keep instructions aligned with official Microsoft documentation
-
-### Evolution Guidelines
-
-1. **Deprecation Process**: When removing or significantly changing guidelines, provide migration guidance
-2. **Versioning**: Consider versioning instruction files for major changes
-3. **Change Documentation**: Document significant changes and their rationale
-4. **Backward Compatibility**: Maintain backward compatibility when possible
-5. **Testing**: Test instruction changes with actual development scenarios
-
-### Quality Assurance
-
-- **Consistency Checks**: Regularly verify that instructions across files don't contradict each other
-- **Practical Validation**: Test instructions with real development scenarios
-- **Feedback Integration**: Incorporate developer feedback and AI assistant learning outcomes
-- **Performance Monitoring**: Monitor how well instructions lead to quality code generation
+**By Development Phase:**
+- Starting new project → [CoreDevelopment](CoreDevelopment/)
+- Writing tests → [TestingValidation](TestingValidation/)
+- Adding integrations → [IntegrationDeployment](IntegrationDeployment/)
+- Fixing performance → [PerformanceOptimization](PerformanceOptimization/)
+- Publishing to AppSource → [AppSourcePublishing](AppSourcePublishing/)
+
+**By Topic:**
+- Object naming → [SharedGuidelines/Standards/naming-conventions](SharedGuidelines/Standards/naming-conventions.instructions.md)
+- Code formatting → [SharedGuidelines/Standards/code-style](SharedGuidelines/Standards/code-style.instructions.md)
+- Error handling → [SharedGuidelines/Standards/error-handling](SharedGuidelines/Standards/error-handling.instructions.md)
+- Core principles → [SharedGuidelines/Configuration/core-principles](SharedGuidelines/Configuration/core-principles.instructions.md)
+
+**By AL Object Type:**
+- Tables → [CoreDevelopment/object-patterns](CoreDevelopment/object-patterns.instructions.md) + [SharedGuidelines/Standards/naming-conventions](SharedGuidelines/Standards/naming-conventions.instructions.md)
+- Pages → [CoreDevelopment/al-development-guide](CoreDevelopment/al-development-guide.instructions.md) + [IntegrationDeployment/accessibility-standards](IntegrationDeployment/accessibility-standards.instructions.md)
+- Codeunits → [CoreDevelopment/object-patterns](CoreDevelopment/object-patterns.instructions.md) + [TestingValidation/testing-strategy](TestingValidation/testing-strategy.instructions.md)
+- Test Objects → [TestingValidation/](TestingValidation/) + [SharedGuidelines/Standards/](SharedGuidelines/Standards/)
+
+**Quick Reference:**
+- All instruction files use `.instructions.md` extension for GitHub Copilot recognition
+- Each workflow folder contains comprehensive README with file descriptions
+- Cross-references link related content across workflows
+
+## Search and Discovery Guide
+
+### How to Find Information Quickly
+
+**By Common Development Tasks:**
+- **Fixing Linter Errors**: [TestingValidation/quality-validation](TestingValidation/quality-validation.instructions.md)
+- **Performance Issues**: [PerformanceOptimization/optimization-guide](PerformanceOptimization/optimization-guide.instructions.md)
+- **Naming Questions**: [SharedGuidelines/Standards/naming-conventions](SharedGuidelines/Standards/naming-conventions.instructions.md)
+- **Error Handling**: [SharedGuidelines/Standards/error-handling](SharedGuidelines/Standards/error-handling.instructions.md)
+- **Code Style Questions**: [SharedGuidelines/Standards/code-style](SharedGuidelines/Standards/code-style.instructions.md)
+
+**By Development Context:**
+- **New Feature Development**: [CoreDevelopment](CoreDevelopment/) → [TestingValidation](TestingValidation/)
+- **Integration Projects**: [IntegrationDeployment](IntegrationDeployment/) + [SharedGuidelines/Standards](SharedGuidelines/Standards/)
+- **AppSource Preparation**: [AppSourcePublishing](AppSourcePublishing/) + ALL previous workflows
+- **Code Reviews**: [SharedGuidelines/Standards](SharedGuidelines/Standards/) + [TestingValidation/quality-validation](TestingValidation/quality-validation.instructions.md)
+
+**Search Keywords for GitHub/IDE:**
+- **AL Language**: `AL`, `Business Central`, `Dynamics 365`, `table`, `page`, `codeunit`, `report`
+- **Development Process**: `testing`, `validation`, `integration`, `performance`, `optimization`
+- **Quality**: `linting`, `error handling`, `naming conventions`, `code style`
+- **Business Central Concepts**: `extensions`, `AppSource`, `APIs`, `accessibility`
+
+## Workflow Integration
+
+### Primary Workflow Connections
+- **CoreDevelopment** ↔ **SharedGuidelines**: Core development uses shared standards as foundation
+- **TestingValidation** ← **CoreDevelopment**: Testing validates development patterns and implementation
+- **IntegrationDeployment** ← **CoreDevelopment**: Integration builds on core development patterns
+- **PerformanceOptimization** ← **CoreDevelopment**: Optimization improves development outcomes
+- **AppSourcePublishing** ← **All Workflows**: Publishing requires compliance across all areas
+
+### Development Flow
+1. **Foundation**: Start with [SharedGuidelines/Configuration/core-principles](SharedGuidelines/Configuration/core-principles.instructions.md)
+2. **Development**: Use [CoreDevelopment](CoreDevelopment/) with [SharedGuidelines/Standards](SharedGuidelines/Standards/)
+3. **Quality Assurance**: Apply [TestingValidation](TestingValidation/) processes
+4. **Integration**: Follow [IntegrationDeployment](IntegrationDeployment/) when needed
+5. **Optimization**: Use [PerformanceOptimization](PerformanceOptimization/) for performance tuning
+6. **Publishing**: Complete [AppSourcePublishing](AppSourcePublishing/) for marketplace
+
+### Transition Points
+- **Development → Testing**: Move from [CoreDevelopment](CoreDevelopment/) to [TestingValidation](TestingValidation/)
+- **Testing → Optimization**: Use [TestingValidation](TestingValidation/) results to guide [PerformanceOptimization](PerformanceOptimization/)
+- **Integration throughout**: Apply [IntegrationDeployment](IntegrationDeployment/) patterns during development
+- **Standards always**: Reference [SharedGuidelines](SharedGuidelines/) consistently across all workflows
+
+## File Organization Benefits
+
+### Meaningful Names Strategy
+**Purpose-Driven Naming**: Files named by function, not technical structure
+- `quality-validation.instructions.md` (function) vs `linter_check.instructions.md` (technical)
+- `al-development-guide.instructions.md` (purpose) vs `al_code.instructions.md` (technical)
+
+**Workflow Context**: Files grouped by when they're used in AL development lifecycle
+- Development phase files in [CoreDevelopment](CoreDevelopment/)
+- Testing phase files in [TestingValidation](TestingValidation/)
+- Cross-cutting standards in [SharedGuidelines](SharedGuidelines/)
+
+### Enhanced Discoverability
+**Multiple Navigation Paths**: Find content through:
+- Workflow-based browsing ([CoreDevelopment](CoreDevelopment/) → specific files)
+- Topic-based search (error handling → [SharedGuidelines/Standards/error-handling](SharedGuidelines/Standards/error-handling.instructions.md))
+- Development phase navigation (testing → [TestingValidation](TestingValidation/))
+
+**Cross-Reference Network**: Related content linked rather than duplicated
+- Single source of truth in [SharedGuidelines](SharedGuidelines/)
+- Workflow-specific guidance references shared standards
+- Clear integration points between workflows
+
+## Contributing Guidelines
+
+### Maintaining the Structure
+
+**Adding New Content:**
+1. **Identify Workflow**: Determine which business workflow the content supports
+2. **Check SharedGuidelines**: Verify if content is cross-cutting or workflow-specific
+3. **Avoid Duplication**: Reference existing content rather than duplicating
+4. **Maintain AL Headers**: Ensure all `.instructions.md` files have proper `applyTo: '**/*.al'`
+
+**Modifying Existing Content:**
+1. **Single Source Rule**: Only update content in its primary location
+2. **Update Cross-References**: Verify all references to modified content remain accurate
+3. **Test GitHub Copilot**: Ensure AI can still access and apply modified content
+4. **Validate Links**: Check that all internal links continue to work
+
+### Content Quality Standards
+- **GitHub Copilot Integration**: All content must support AI assistant integration
+- **Meaningful Names**: File names must be purpose-driven and descriptive
+- **Cross-References**: Prefer references over content duplication
+- **Workflow Integrity**: Each workflow must maintain clear business purpose
+- **Practical Examples**: Include AL code samples and real-world scenarios
+
+### Workflow-Specific Guidelines
+**CoreDevelopment**: Focus on AL language fundamentals and core patterns
+**TestingValidation**: Emphasize quality assurance and testing strategies
+**IntegrationDeployment**: Cover integration patterns and accessibility
+**PerformanceOptimization**: Address performance tuning and optimization
+**AppSourcePublishing**: Ensure marketplace compliance and standards
+**SharedGuidelines**: Maintain cross-cutting standards that apply everywhere
+
+## GitHub Copilot Integration Benefits
+
+### Optimized for AI Accessibility
+**Standardized File Structure**: All instruction files use `.instructions.md` extension for consistent AI recognition
+**Workflow Context**: AI assistants can easily navigate from high-level workflows to specific implementation guidance
+**Cross-Reference Network**: Related content linked to provide comprehensive context without duplication
+
+### Enhanced Development Productivity
+**Meaningful Organization**: AI can quickly locate relevant guidelines based on development context
+**Single Source of Truth**: No conflicting guidance - clear standards referenced across workflows
+**Progressive Detail**: From overview to implementation details through workflow hierarchy
+
+### AI-Friendly Features
+- **Consistent Headers**: All instruction files include proper `applyTo: '**/*.al'` metadata
+- **Cross-Workflow References**: Clear navigation between related concepts
+- **Practical Examples**: Code samples and implementation patterns for AI application
+- **Search Optimization**: Keywords and topics integrated for enhanced discoverability
+
+## Project Goals Achieved
+
+✅ **Meaningful File Names**: All files have descriptive, purpose-driven names that clearly indicate their function  
+✅ **Good Indexes**: Comprehensive navigation and workflow-based organization for enhanced discoverability  
+✅ **No Duplication**: Single source of truth for all standards and guidelines with cross-references  
+✅ **GitHub Copilot Integration**: All instruction files accessible and properly formatted for AI assistants  
+✅ **Workflow Organization**: Logical business process organization matching AL development lifecycle  
+✅ **Enhanced Navigation**: Multiple pathways to find information (by phase, topic, object type, task)  
+
+## Support and Navigation
+
+### Quick Reference Links
+- 🏠 **[Main README](README.md)** - This navigation hub
+- 📋 **All Workflows** - Navigate using sections above
+- 🔗 **[SharedGuidelines](SharedGuidelines/)** - Cross-cutting standards
+- 🎯 **[Quick Start](#quick-start-guide)** - Get started immediately
+
+### For Questions and Issues
+1. **Check workflow README files** for detailed guidance on specific development phases
+2. **Review SharedGuidelines** for cross-cutting standards and common patterns
+3. **Use meaningful file names** to locate specific guidance quickly
+4. **Follow cross-references** for related content and comprehensive context
+5. **Reference navigation guides** above for multiple discovery pathways
+
+### Workflow Navigation
+- **[CoreDevelopment](CoreDevelopment/)** - AL fundamentals and object patterns
+- **[TestingValidation](TestingValidation/)** - Testing strategies and quality assurance
+- **[IntegrationDeployment](IntegrationDeployment/)** - Integration and deployment guidance
+- **[PerformanceOptimization](PerformanceOptimization/)** - Performance tuning and optimization
+- **[AppSourcePublishing](AppSourcePublishing/)** - Marketplace compliance and publishing
+- **[SharedGuidelines](SharedGuidelines/)** - Cross-cutting standards and configuration
 
 ---
 
-*This documentation structure supports maintainable, high-quality AL development for Business Central extensions, with particular focus on AppSource-ready applications.*
+**Repository Structure**: Workflow-based organization for enhanced AL development productivity and GitHub Copilot integration.
