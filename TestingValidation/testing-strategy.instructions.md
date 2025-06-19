@@ -55,6 +55,362 @@ begin
 end;
 ```
 
+### Complete Test Codeunit Example
+
+```al
+codeunit 50200 "X ABC Customer Rating Tests"
+{
+    Subtype = Test;
+    TestPermissions = Disabled;
+
+    var
+        Assert: Codeunit Assert;
+        LibraryRandom: Codeunit "Library - Random";
+        LibraryUtility: Codeunit "Library - Utility";
+        CustomerRatingMgt: Codeunit "ABC Customer Rating Mgt";
+        IsInitialized: Boolean;
+
+    [Test]
+    procedure TestCreateCustomerRatingWithValidData()
+    var
+        CustomerRating: Record "ABC Customer Rating";
+        Customer: Record Customer;
+    begin
+        // Arrange
+        Initialize();
+        CreateTestCustomer(Customer);
+        
+        // Act
+        CreateTestCustomerRating(CustomerRating, Customer."No.");
+        
+        // Assert
+        CustomerRating.TestField("Customer No.", Customer."No.");
+        CustomerRating.TestField("Rating Date");
+        Assert.IsTrue(CustomerRating."Rating Score" >= 1, 'Rating score should be at least 1');
+        Assert.IsTrue(CustomerRating."Rating Score" <= 5, 'Rating score should be at most 5');
+    end;
+
+    [Test]
+    procedure TestCustomerRatingValidationWithEmptyCustomerNo()
+    var
+        CustomerRating: Record "ABC Customer Rating";
+    begin
+        // Arrange
+        Initialize();
+        CustomerRating.Init();
+        CustomerRating."Rating Date" := Today;
+        CustomerRating."Rating Score" := 5;
+        
+        // Act & Assert
+        asserterror CustomerRating.Insert(true);
+        Assert.ExpectedError('Customer No. must have a value');
+    end;
+
+    [Test]
+    procedure TestCustomerRatingValidationWithInvalidScore()
+    var
+        CustomerRating: Record "ABC Customer Rating";
+        Customer: Record Customer;
+    begin
+        // Arrange
+        Initialize();
+        CreateTestCustomer(Customer);
+        CustomerRating.Init();
+        CustomerRating."Customer No." := Customer."No.";
+        CustomerRating."Rating Date" := Today;
+        
+        // Act & Assert - Test lower bound
+        asserterror CustomerRating.Validate("Rating Score", 0);
+        Assert.ExpectedError('Rating Score must be between 1 and 5');
+        
+        // Act & Assert - Test upper bound
+        asserterror CustomerRating.Validate("Rating Score", 6);
+        Assert.ExpectedError('Rating Score must be between 1 and 5');
+    end;
+
+    [Test]
+    procedure TestCalculateAverageRating()
+    var
+        CustomerRating: Record "ABC Customer Rating";
+        Customer: Record Customer;
+        ExpectedAverage: Decimal;
+        ActualAverage: Decimal;
+        i: Integer;
+    begin
+        // Arrange
+        Initialize();
+        CreateTestCustomer(Customer);
+        
+        // Create multiple ratings for the customer
+        for i := 1 to 5 do begin
+            Clear(CustomerRating);
+            CreateTestCustomerRating(CustomerRating, Customer."No.");
+            CustomerRating."Rating Score" := i;
+            CustomerRating.Modify(true);
+        end;
+        
+        ExpectedAverage := 3.0; // (1+2+3+4+5)/5 = 3
+        
+        // Act
+        ActualAverage := CustomerRatingMgt.CalculateAverageRating(Customer."No.");
+        
+        // Assert
+        Assert.AreEqual(ExpectedAverage, ActualAverage, 'Average rating calculation failed');
+    end;
+
+    [Test]
+    procedure TestGetHighestRatingCustomers()
+    var
+        TempCustomer: Record Customer temporary;
+        Customer1, Customer2, Customer3: Record Customer;
+        CustomerRating: Record "ABC Customer Rating";
+        MinRating: Decimal;
+    begin
+        // Arrange
+        Initialize();
+        CreateTestCustomer(Customer1);
+        CreateTestCustomer(Customer2);
+        CreateTestCustomer(Customer3);
+        
+        // Create ratings for customers
+        CreateTestCustomerRating(CustomerRating, Customer1."No.");
+        CustomerRating."Rating Score" := 5;
+        CustomerRating.Modify(true);
+        
+        CreateTestCustomerRating(CustomerRating, Customer2."No.");
+        CustomerRating."Rating Score" := 3;
+        CustomerRating.Modify(true);
+        
+        CreateTestCustomerRating(CustomerRating, Customer3."No.");
+        CustomerRating."Rating Score" := 4;
+        CustomerRating.Modify(true);
+        
+        MinRating := 4.0;
+        
+        // Act
+        CustomerRatingMgt.GetHighestRatingCustomers(TempCustomer, MinRating);
+        
+        // Assert
+        Assert.AreEqual(2, TempCustomer.Count, 'Should find 2 customers with rating >= 4');
+        
+        // Verify specific customers are included
+        Assert.IsTrue(TempCustomer.Get(Customer1."No."), 'Customer1 should be included');
+        Assert.IsTrue(TempCustomer.Get(Customer3."No."), 'Customer3 should be included');
+        Assert.IsFalse(TempCustomer.Get(Customer2."No."), 'Customer2 should not be included');
+    end;
+
+    [Test]
+    procedure TestRatingWorkflowWithApproval()
+    var
+        CustomerRating: Record "ABC Customer Rating";
+        Customer: Record Customer;
+        RatingWorkflow: Codeunit "ABC Customer Rating Workflow";
+    begin
+        // Arrange
+        Initialize();
+        CreateTestCustomer(Customer);
+        SetupApprovalRequiredForLowRatings();
+        
+        CreateTestCustomerRating(CustomerRating, Customer."No.");
+        CustomerRating."Rating Score" := 1; // Low rating requiring approval
+        CustomerRating.Modify(true);
+        
+        // Act
+        RatingWorkflow.ProcessRatingWorkflow(CustomerRating);
+        
+        // Assert
+        CustomerRating.Get(CustomerRating."Customer No.", CustomerRating."Rating Date", CustomerRating."Rating Category");
+        Assert.AreEqual(Format(CustomerRating.Status::"Pending Approval"), Format(CustomerRating.Status), 'Rating should be pending approval');
+    end;
+
+    [Test]
+    procedure TestPerformanceWithLargeDataset()
+    var
+        Customer: Record Customer;
+        CustomerRating: Record "ABC Customer Rating";
+        StartTime: Time;
+        EndTime: Time;
+        Duration: Duration;
+        i: Integer;
+        MaxDuration: Duration;
+    begin
+        // Arrange
+        Initialize();
+        CreateTestCustomer(Customer);
+        
+        // Create large dataset for performance testing
+        for i := 1 to 1000 do begin
+            Clear(CustomerRating);
+            CreateTestCustomerRating(CustomerRating, Customer."No.");
+            CustomerRating."Rating Score" := Random(5) + 1;
+            CustomerRating.Modify(true);
+        end;
+        
+        MaxDuration := 5000; // 5 seconds maximum
+        
+        // Act
+        StartTime := Time;
+        CustomerRatingMgt.CalculateAverageRating(Customer."No.");
+        EndTime := Time;
+        
+        // Assert
+        Duration := EndTime - StartTime;
+        Assert.IsTrue(Duration <= MaxDuration, StrSubstNo('Performance test failed. Duration: %1ms, Maximum: %2ms', Duration, MaxDuration));
+    end;
+
+    local procedure Initialize()
+    begin
+        if IsInitialized then
+            exit;
+            
+        // Setup any global test data or configuration
+        SetupTestConfiguration();
+        
+        IsInitialized := true;
+        Commit();
+    end;
+
+    local procedure CreateTestCustomer(var Customer: Record Customer)
+    begin
+        Customer.Init();
+        Customer."No." := 'X' + LibraryUtility.GenerateRandomCode(Customer.FieldNo("No."), Database::Customer);
+        Customer.Name := 'XTest Customer ' + Format(LibraryRandom.RandInt(9999));
+        Customer."E-Mail" := 'xtest@example.com';
+        Customer."Phone No." := 'X123456789';
+        Customer.Insert(true);
+    end;
+
+    local procedure CreateTestCustomerRating(var CustomerRating: Record "ABC Customer Rating"; CustomerNo: Code[20])
+    begin
+        CustomerRating.Init();
+        CustomerRating."Customer No." := CustomerNo;
+        CustomerRating."Rating Date" := Today;
+        CustomerRating."Rating Score" := LibraryRandom.RandIntInRange(1, 5);
+        CustomerRating."Rating Category" := "ABC Rating Category"::Service;
+        CustomerRating.Comments := 'XTest rating comment';
+        CustomerRating.Insert(true);
+    end;
+
+    local procedure SetupTestConfiguration()
+    var
+        RatingSetup: Record "ABC Rating Setup";
+    begin
+        if not RatingSetup.Get() then begin
+            RatingSetup.Init();
+            RatingSetup."Approval Required Below Score" := 2;
+            RatingSetup."High Value Customer Threshold" := 10000;
+            RatingSetup.Insert();
+        end;
+    end;
+
+    local procedure SetupApprovalRequiredForLowRatings()
+    var
+        RatingSetup: Record "ABC Rating Setup";
+    begin
+        if RatingSetup.Get() then begin
+            RatingSetup."Approval Required Below Score" := 2;
+            RatingSetup.Modify();
+        end;
+    end;
+
+    [ConfirmHandler]
+    procedure ConfirmHandler(Question: Text[1024]; var Reply: Boolean)
+    begin
+        Reply := true;
+    end;
+
+    [MessageHandler]
+    procedure MessageHandler(Message: Text[1024])
+    begin
+        // Handle messages during testing
+    end;
+}
+```
+
+### Test Data Library Example
+
+```al
+codeunit 50201 "X ABC Test Data Library"
+{
+    // Test library for consistent test data creation
+
+    procedure CreateMinimalCustomerRating(var CustomerRating: Record "ABC Customer Rating"; CustomerNo: Code[20])
+    begin
+        CustomerRating.Init();
+        CustomerRating."Customer No." := CustomerNo;
+        CustomerRating."Rating Date" := Today;
+        CustomerRating."Rating Score" := 3;
+        CustomerRating."Rating Category" := "ABC Rating Category"::Service;
+        CustomerRating.Insert(true);
+    end;
+
+    procedure CreateFullCustomerRating(var CustomerRating: Record "ABC Customer Rating"; CustomerNo: Code[20]; RatingScore: Integer; RatingCategory: Enum "ABC Rating Category")
+    begin
+        CustomerRating.Init();
+        CustomerRating."Customer No." := CustomerNo;
+        CustomerRating."Rating Date" := Today;
+        CustomerRating."Rating Score" := RatingScore;
+        CustomerRating."Rating Category" := RatingCategory;
+        CustomerRating.Comments := 'XTest rating created by library';
+        CustomerRating.Insert(true);
+    end;
+
+    procedure CreateCustomerWithRating(var Customer: Record Customer; var CustomerRating: Record "ABC Customer Rating"; RatingScore: Integer)
+    var
+        LibraryUtility: Codeunit "Library - Utility";
+    begin
+        // Create customer
+        Customer.Init();
+        Customer."No." := 'X' + LibraryUtility.GenerateRandomCode(Customer.FieldNo("No."), Database::Customer);
+        Customer.Name := 'XTest Customer with Rating';
+        Customer.Insert(true);
+        
+        // Create rating for customer
+        CreateFullCustomerRating(CustomerRating, Customer."No.", RatingScore, "ABC Rating Category"::Service);
+    end;
+
+    procedure CreateMultipleRatingsForCustomer(CustomerNo: Code[20]; NumberOfRatings: Integer; var AvgScore: Decimal)
+    var
+        CustomerRating: Record "ABC Customer Rating";
+        i: Integer;
+        TotalScore: Integer;
+        LibraryRandom: Codeunit "Library - Random";
+    begin
+        TotalScore := 0;
+        for i := 1 to NumberOfRatings do begin
+            Clear(CustomerRating);
+            CustomerRating."Customer No." := CustomerNo;
+            CustomerRating."Rating Date" := CalcDate('<-' + Format(i) + 'D>', Today);
+            CustomerRating."Rating Score" := LibraryRandom.RandIntInRange(1, 5);
+            CustomerRating."Rating Category" := "ABC Rating Category"::Service;
+            CustomerRating.Insert(true);
+            TotalScore += CustomerRating."Rating Score";
+        end;
+        
+        AvgScore := TotalScore / NumberOfRatings;
+    end;
+
+    procedure CleanupTestData()
+    var
+        Customer: Record Customer;
+        CustomerRating: Record "ABC Customer Rating";
+    begin
+        // Clean up customers with X prefix
+        Customer.SetFilter("No.", 'X*');
+        if Customer.FindSet() then
+            repeat
+                // Delete related ratings first
+                CustomerRating.SetRange("Customer No.", Customer."No.");
+                CustomerRating.DeleteAll();
+            until Customer.Next() = 0;
+        Customer.DeleteAll();
+
+        // Clean up orphaned ratings with X prefix customer numbers
+        CustomerRating.SetFilter("Customer No.", 'X*');
+        CustomerRating.DeleteAll();
+    end;
+}
+
 ### Test Isolation
 
 - Each test should be independent and not rely on other tests
