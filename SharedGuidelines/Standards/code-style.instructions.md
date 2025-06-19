@@ -5,6 +5,24 @@ applyTo: '**/*.al'
 
 This document outlines the coding standards and best practices for AL code in this project. Following these guidelines ensures consistent, maintainable, and high-quality code.
 
+## Table of Contents
+
+### Quick Navigation
+- [Quick Reference](#quick-reference) - Key style rules and patterns
+- [Common Patterns](#common-patterns) - Frequently used code structures
+- [Troubleshooting](#troubleshooting) - Style issue resolution
+
+### Detailed Content
+1. [Variable Naming Conventions](#variable-naming-conventions)
+2. [Code Formatting Standards](#code-formatting-standards)
+3. [Object Property Qualification](#object-property-qualification)
+4. [String Formatting](#string-formatting)
+5. [Tooltips](#tooltips)
+6. [Text Constants and Localization](#text-constants-and-localization)
+7. [Performance Considerations](#performance-considerations)
+8. [Search Keywords](#search-keywords)
+9. [Cross-References](#cross-references)
+
 ## Variable Naming Conventions
 
 1. **PascalCase for Object Names**: Use PascalCase for all object names (tables, pages, codeunits, etc.)
@@ -297,3 +315,53 @@ This document outlines the coding standards and best practices for AL code in th
   ```
 
 By following these guidelines, you'll create more maintainable, readable, and efficient AL code.
+
+## Quick Reference
+
+### Key Style Rules
+- **Variable Naming**: PascalCase for all variables and objects
+- **Variable Ordering**: Record, Report, Codeunit, XMLPort, Page, Query, then others
+- **String Formatting**: Use StrSubstNo with text constants for all dynamic strings
+- **Tooltips**: Start field tooltips with 'Specifies', use clear and concise language
+- **Performance**: Use SetLoadFields, avoid nested loops, implement proper filtering
+
+### Common Patterns
+```al
+// Standard variable declaration order
+var
+    SalesHeader: Record "Sales Header";
+    Customer: Record Customer;
+    TempSalesLine: Record "Sales Line" temporary;
+    ProcessingMsg: Label 'Processing %1...';
+    TotalAmount: Decimal;
+```
+
+## Search Keywords
+
+### AL Language Keywords
+**Code Structure**: Variable naming, PascalCase, object qualification, procedure structure, AL syntax
+**Formatting Standards**: Code formatting, indentation, line breaks, string formatting, text constants
+**Performance Patterns**: SetLoadFields, bulk operations, filtering, record processing, optimization
+
+### Business Central Concepts
+**Object Development**: Page design, field tooltips, user experience, accessibility
+**Extension Standards**: AL best practices, code quality, maintainability, AppSource compliance
+**Localization**: Text constants, labels, multilingual support, internationalization
+
+### Development Patterns
+**Code Quality**: Consistent formatting, readable code, maintainable structure, error prevention
+**Style Guidelines**: Naming conventions, code organization, documentation, best practices
+**Team Standards**: Consistent development, code review patterns, quality assurance
+
+## Cross-References
+
+### Related SharedGuidelines
+- **Naming Conventions**: `SharedGuidelines/Standards/naming-conventions.instructions.md` - Variable and object naming rules
+- **Error Handling**: `SharedGuidelines/Standards/error-handling.instructions.md` - Error message formatting and text constants
+- **Core Principles**: `SharedGuidelines/Configuration/core-principles.instructions.md` - Development foundation
+
+### Workflow Applications
+- **CoreDevelopment**: Implementation of style guidelines in object creation
+- **TestingValidation**: Style standards for test code and validation procedures
+- **PerformanceOptimization**: Performance-focused coding patterns and optimizations
+- **AppSourcePublishing**: Code style compliance for marketplace requirements

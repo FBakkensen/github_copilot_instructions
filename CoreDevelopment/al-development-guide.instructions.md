@@ -8,6 +8,30 @@ You are an expert AL developer assistant specialized in Microsoft Dynamics 365 B
 > **Note:** Always refer to the official Microsoft documentation for the most up-to-date information on AL programming for Business Central.
 > [Business Central AL Programming Documentation](https://learn.microsoft.com/en-us/dynamics365/business-central/dev-itpro/developer/devenv-programming-in-al)
 
+## Table of Contents
+
+### Quick Navigation
+- [Quick Reference](#quick-reference) - Essential AL development rules and patterns
+- [Common Scenarios](#common-scenarios) - Typical development use cases
+- [Troubleshooting](#troubleshooting) - Problem resolution guidance
+
+### Detailed Content
+1. [Core Principles](#core-principles)
+2. [General Instructions for AI Assistant](#general-instructions-for-ai-assistant)
+   - [Code Quality and Standards](#code-quality-and-standards)
+   - [Project Structure](#project-structure)
+   - [Implementation Guidelines](#implementation-guidelines)
+3. [AL Language Best Practices](#al-language-best-practices)
+4. [Data Access Patterns](#data-access-patterns)
+5. [Business Logic Implementation](#business-logic-implementation)
+6. [User Interface Guidelines](#user-interface-guidelines)
+7. [Performance Optimization](#performance-optimization)
+8. [Error Handling Patterns](#error-handling-patterns)
+9. [Integration Standards](#integration-standards)
+10. [Testing Approaches](#testing-approaches)
+11. [Search Keywords](#search-keywords)
+12. [Cross-References](#cross-references)
+
 ## Core Principles
 
 When developing for Business Central, always follow these core principles:
@@ -512,3 +536,66 @@ CustomerOld: Record Customer;
 5. The prefix is always followed by a space
 6. The prefix is always just once in the object name
 7. The prefix is always in the beginning of the object name
+
+## Quick Reference
+
+### Essential AL Development Rules
+- **Follow Extension Model**: Never modify base application, use table/page extensions
+- **Use Proper Naming**: Follow PascalCase, meaningful names, consistent terminology
+- **Implement Error Handling**: Actionable error messages with user guidance
+- **Optimize Performance**: Use SetLoadFields, avoid nested loops, proper filtering
+- **Maintain Code Quality**: Always check for linter errors, follow style guidelines
+
+### Common Development Patterns
+```al
+// Standard object creation with prefix
+table 50100 "ABC Custom Table"
+{
+    fields
+    {
+        field(1; "Entry No."; Integer) { }
+        field(2; Description; Text[100]) { }
+    }
+}
+
+// Performance-optimized record access
+Customer.SetLoadFields("No.", Name, "E-Mail");
+if Customer.FindSet() then
+    repeat
+        // Process each record
+    until Customer.Next() = 0;
+```
+
+## Search Keywords
+
+### AL Language Keywords
+**Object Types**: Table, Page, Codeunit, Report, XMLport, Query, Enum, Interface, ControlAddIn
+**AL Syntax**: Procedure, trigger, field, key, flowfield, var, begin, end, case, if-then-else
+**Data Access**: SetLoadFields, SetRange, FindSet, Insert, Modify, Delete, record processing
+
+### Business Central Concepts
+**Extension Development**: Table extension, page extension, extension model, AppSource publishing
+**Business Logic**: Workflows, validation, integration, API development, event handling
+**User Experience**: Pages, actions, factboxes, navigation, accessibility, tooltips
+
+### Development Patterns
+**Code Quality**: AL best practices, coding standards, maintainable code, performance optimization
+**Architecture**: Object patterns, design principles, modular development, separation of concerns
+**Integration**: Event-based programming, web services, APIs, external system connectivity
+
+## Cross-References
+
+### Related SharedGuidelines
+- **Naming Conventions**: `SharedGuidelines/Standards/naming-conventions.instructions.md` - Object and variable naming rules
+- **Code Style**: `SharedGuidelines/Standards/code-style.instructions.md` - Formatting and style standards  
+- **Error Handling**: `SharedGuidelines/Standards/error-handling.instructions.md` - Error handling best practices
+- **Core Principles**: `SharedGuidelines/Configuration/core-principles.instructions.md` - Development foundation
+
+### Related CoreDevelopment Files
+- **Coding Standards**: `CoreDevelopment/coding-standards.instructions.md` - Basic coding patterns and standards
+- **Object Patterns**: `CoreDevelopment/object-patterns.instructions.md` - Specific object creation patterns
+
+### Workflow Transitions
+- **From**: `SharedGuidelines/Configuration/core-principles.instructions.md` - Apply foundational principles
+- **To**: `TestingValidation/testing-strategy.instructions.md` - Validate development with comprehensive testing
+- **To**: `PerformanceOptimization/optimization-guide.instructions.md` - Optimize developed solutions
