@@ -1,51 +1,37 @@
 ---
 applyTo: '**/*.al'
 ---
+---
+applyTo: '**/*.al'
+---
 # Linter Check Instructions
 
-## Always Check for Linter Errors
+> **CONTENT MOVED NOTICE**: This content has been consolidated and enhanced in the TestingValidation workflow.
 
-Before completing any code changes, always check for and fix linter errors in the affected files. This ensures that the code follows AL best practices and coding standards.
+## Consolidated Location
 
-## Steps to Check and Fix Linter Errors
+The complete linter check procedures and quality validation guidelines have been moved to:
+- **Primary Location**: `TestingValidation/quality-validation.instructions.md`
 
-1. **Identify Affected Files**: Determine which files have been modified or created during the implementation.
+This consolidated file includes:
+- Comprehensive linter error checking procedures
+- Steps to identify and fix common linter errors
+- Code quality validation processes
+- Examples of linter error fixes
+- Best practices for maintaining code quality
 
-2. **Run Diagnostics**: Use the diagnostics tool to check for linter errors in the affected files.
-   ```
-   diagnostics(["path/to/file1.al", "path/to/file2.al"])
-   ```
+## Quick Reference
 
-3. **Fix Common Linter Errors**:
-   - Remove unused variables
-   - Order variable declarations by type
-   - Replace nested if-then-else structures with case statements
-   - Ensure proper use of BEGIN..END blocks
-   - Make sure 'if' keywords start on a new line
-   - Use "this" qualification for object properties
-   - Use text constants for string formatting
+**Key Process**: Always check for and fix linter errors before completing any code changes using the diagnostics tool to ensure code follows AL best practices.
 
-4. **Recheck After Fixes**: After making changes, run diagnostics again to ensure all linter errors have been resolved.
+## Cross-Reference to Standards
 
-5. **Document Any Remaining Issues**: If any linter errors cannot be fixed (e.g., due to compatibility concerns), document the reason.
+Quality validation should also follow these shared standards:
+- **Code Style**: `SharedGuidelines/Standards/code-style.instructions.md`
+- **Error Handling**: `SharedGuidelines/Standards/error-handling.instructions.md`
+- **Testing Strategy**: `TestingValidation/testing-strategy.instructions.md`
 
-## Example Linter Error Fixes
-
-### Unused Variables
-```al
-// Before
-var
-    Customer: Record Customer;
-    TempSalesLine: Record "Sales Line" temporary; // Unused
-
-// After
-var
-    Customer: Record Customer;
-```
-
-### Variable Declaration Order
-```al
-// Before
+For detailed linter procedures, examples, and advanced quality validation guidance, please refer to the consolidated file in the TestingValidation workflow.
 var
     TotalAmount: Decimal;
     Customer: Record Customer;

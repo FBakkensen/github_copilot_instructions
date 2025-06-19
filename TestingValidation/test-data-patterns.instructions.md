@@ -1,30 +1,53 @@
 ---
 applyTo: '**/*.al'
 ---
----
-applyTo: '**/*.al'
----
-# Test Data Generation Guidelines
+# Test Data Generation Patterns
 
-> **CONTENT MOVED NOTICE**: This content has been consolidated and enhanced in the TestingValidation workflow.
+This document outlines comprehensive patterns and best practices for generating test data in Business Central AL test libraries and test codeunits.
 
-## Consolidated Location
+## Test Data Prefixing Requirements
 
-The complete test data generation guidelines have been moved to:
-- **Primary Location**: `TestingValidation/test-data-patterns.instructions.md`
+### Code and Text Field Prefixes
 
-This consolidated file includes:
-- Comprehensive test data prefixing requirements
-- Advanced test data generation patterns
-- Unique data generation strategies
-- Best practices for test libraries
-- Complete code examples and patterns
+When generating test data in Library files and test codeunits, always prefix Code and Text fields with 'X' to ensure the data does not conflict with existing data in the database.
 
-## Quick Reference
+**This requirement applies to:**
+- Test Library codeunits
+- Test codeunits
+- Any procedure that creates test data
 
-**Key Rule**: Always prefix Code and Text fields with 'X' when generating test data in Library files and test codeunits to ensure the data does not conflict with existing database data.
+**Examples:**
 
-For detailed patterns, examples, and advanced guidance, please refer to the consolidated file in the TestingValidation workflow.
+```al
+// In a test library codeunit
+procedure CreateTestCustomer(var Customer: Record Customer)
+begin
+    Customer.Init();
+    Customer."No." := 'XTEST001';  // Prefixed with 'X'
+    Customer.Name := 'XTest Customer Name';  // Prefixed with 'X'
+    Customer.Address := 'XTest Street 123';  // Prefixed with 'X'
+    Customer.Insert(true);
+end;
+
+procedure CreateTestItem(var Item: Record "Item")
+begin
+    Item.Init();
+    Item."No." := 'XITEM001';  // Prefixed with 'X'
+    Item.Description := 'XTest Item Description';  // Prefixed with 'X'
+    Item."Base Unit of Measure" := 'XPCS';  // Prefixed with 'X'
+    Item.Insert(true);
+end;
+```
+
+### Unique Test Data Generation
+
+For generating unique test data, combine the 'X' prefix with incremental numbers or GUIDs:
+
+```al
+procedure CreateUniqueCustomerNo(): Code[20]
+var
+    Counter: Integer;
+begin
     Counter := GetNextCounter();
     exit('XCUST' + Format(Counter).PadLeft(5, '0'));  // Returns: XCUST00001, XCUST00002, etc.
 end;

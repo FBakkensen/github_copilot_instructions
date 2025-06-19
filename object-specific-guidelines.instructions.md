@@ -1,53 +1,33 @@
 ---
 applyTo: '**/*.al'
 ---
+---
+applyTo: '**/*.al'
+---
 # Object-Specific Guidelines
 
-This document outlines specific guidelines for different object types in Business Central AL code.
+> **CONTENT MOVED NOTICE**: This content has been consolidated and enhanced in the CoreDevelopment workflow.
 
-## Tables and Table Extensions
+## Consolidated Location
 
-- All fields must include a tooltip
-- Field numbers in tables must start with the number defined in app.json
-- New fields must use the first available number in the range defined in app.json
-- Tooltips in fields always start with 'Specifies '
-- Fields on tables must have a Dataclassification property set to `CustomerContent`
-- Identifiers on fields on tables should not have a prefix
-- Identifiers on fields on tableextensions must have a prefix
-- Use appropriate field types for the data they will contain
-- Implement proper validation for fields
-- Use FlowFields and FlowFilters appropriately
+The complete object-specific guidelines have been moved to:
+- **Primary Location**: `CoreDevelopment/object-patterns.instructions.md`
 
-## Pages and Page Extensions
+This consolidated file includes:
+- Table and Table Extension guidelines
+- Page and Page Extension patterns
+- Codeunit development patterns
+- Best practices for each object type
+- Complete code examples and templates
 
-- No implicit Rec is allowed
-- The layout must be defined before the actions
-- Identifiers of fields and actions must not be prefixed
-- The properties `Promoted` and `PromotedCategory` must not be used for actions, instead use the actionref syntax
-- The identifier for a promoted actionref must have a suffix of `_Promoted`
-- Tooltips should be on table fields not on the page fields
-- Fields must have an ApplicationArea property set to `All`
-- Follow the standard Business Central page layout patterns
-- Group related fields together
-- Use appropriate FastTabs for organizing content
-- Implement proper field validation
+## Cross-Reference to Shared Standards
 
-## Codeunits
+Object development should also follow these shared standards:
+- **Naming Conventions**: `SharedGuidelines/Standards/naming-conventions.instructions.md`
+- **Code Style**: `SharedGuidelines/Standards/code-style.instructions.md`
+- **Error Handling**: `SharedGuidelines/Standards/error-handling.instructions.md`
 
-- Procedures must only be marked with `[Scope('OnPrem')]` if this is explicitly stated
-- Procedures must follow the Single Responsibility Principle (SRP)
-- Check for IsGuiAllowed() before using any GUI functions
-- For major functionality create a codeunit with the name of the functionality
-
-### Codeunit Pattern for Major Functionality
-
-```al
-codeunit 50100 "My Functionality"
-{
-    procedure DoSomething(var MyRecord: Record "My Record")
-    var
-        Handled: Boolean;
-    begin
+For detailed object-specific patterns, examples, and advanced guidance, please refer to the consolidated file in the CoreDevelopment workflow.
         OnBeforeDoSomething(MyRecord, Handled);
         DoDoSomething(MyRecord, Handled);
         OnAfterDoSomething(MyRecord);
