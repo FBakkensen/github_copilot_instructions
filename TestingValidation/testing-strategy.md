@@ -1,7 +1,4 @@
----
-applyTo: '**/*.al'
----
-# Testing Strategy Guidelines
+﻿# Testing Strategy Guidelines
 
 This document outlines comprehensive testing strategies and best practices for AL development in Business Central.
 
@@ -689,13 +686,13 @@ Customer.Name := 'XTest Customer';
 ## Cross-References
 
 ### Related TestingValidation Files
-- **Test Data Patterns**: `TestingValidation/test-data-patterns.instructions.md` - Detailed X prefix requirements and data generation
-- **Quality Validation**: `TestingValidation/quality-validation.instructions.md` - Quality gates and validation processes
+- **Test Data Patterns**: `TestingValidation/test-data-patterns.md` - Detailed X prefix requirements and data generation
+- **Quality Validation**: `TestingValidation/quality-validation.md` - Quality gates and validation processes
 
 ### Related SharedGuidelines
-- **Code Style**: `SharedGuidelines/Standards/code-style.instructions.md` - Test code formatting and style standards
-- **Naming Conventions**: `SharedGuidelines/Standards/naming-conventions.instructions.md` - Test procedure and variable naming
-- **Error Handling**: `SharedGuidelines/Standards/error-handling.instructions.md` - Error handling in test scenarios
+- **Code Style**: `SharedGuidelines/Standards/code-style.md` - Test code formatting and style standards
+- **Naming Conventions**: `SharedGuidelines/Standards/naming-conventions.md` - Test procedure and variable naming
+- **Error Handling**: `SharedGuidelines/Standards/error-handling.md` - Error handling in test scenarios
 
 ### Workflow Applications
 - **CoreDevelopment**: Testing strategies for object development validation

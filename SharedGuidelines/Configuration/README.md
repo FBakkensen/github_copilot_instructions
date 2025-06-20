@@ -1,4 +1,4 @@
-# Configuration - AI Assistant and Core Guidelines
+﻿# Configuration - AI Assistant and Core Guidelines
 
 ## Purpose
 
@@ -15,12 +15,12 @@ This directory provides configuration guidelines for:
 
 ## Included Guidelines
 
-### ai-assistant-guidelines.instructions.md
+### ai-assistant-guidelines.md
 **Purpose**: Guidelines for AI assistants to provide optimal AL development support
 **When to use**: Used by AI assistants (GitHub Copilot, etc.) to understand AL development context
 **Key topics**: AL language patterns, Business Central concepts, development assistance patterns
 
-### core-principles.instructions.md
+### core-principles.md
 **Purpose**: Fundamental AL development principles and methodologies
 **When to use**: As foundation for all development activities and decision-making
 **Key topics**: Development philosophy, quality principles, architectural guidance

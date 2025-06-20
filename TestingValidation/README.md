@@ -1,4 +1,4 @@
-# TestingValidation - AL/Business Central Testing & Quality Assurance
+﻿# TestingValidation - AL/Business Central Testing & Quality Assurance
 
 ## Workflow Purpose
 
@@ -14,17 +14,17 @@ This workflow addresses the following AL development areas:
 
 ## Included Guidelines
 
-### testing-strategy.instructions.md
+### testing-strategy.md
 **Purpose**: Comprehensive testing methodology and strategic approach to AL testing
 **When to use**: Planning testing approach, implementing test frameworks, establishing testing standards
 **Key topics**: Testing methodology, test organization, testing best practices, quality metrics
 
-### test-data-patterns.instructions.md
+### test-data-patterns.md
 **Purpose**: Test data generation patterns and management strategies for AL development
 **When to use**: Creating test data, setting up test environments, generating mock data for tests
 **Key topics**: Test data prefixing, data generation patterns, test isolation, cleanup strategies
 
-### quality-validation.instructions.md
+### quality-validation.md
 **Purpose**: Code quality validation including linting, code review, and compliance checking
 **When to use**: Validating code quality, running linters, ensuring compliance with standards
 **Key topics**: Linting procedures, code review processes, quality metrics, validation automation
@@ -155,15 +155,15 @@ quality assurance, code validation, testing framework, test isolation, complianc
 
 ### Common Use Cases
 1. **Unit Testing Business Logic**: Test individual codeunit procedures and calculations
-   - Apply: testing-strategy.instructions.md, test-data-patterns.instructions.md
+   - Apply: testing-strategy.md, test-data-patterns.md
    - Focus on: Test isolation, business logic validation, edge case testing
 
 2. **Integration Testing**: Validate interactions between objects and external systems
-   - Apply: testing-strategy.instructions.md, quality-validation.instructions.md
+   - Apply: testing-strategy.md, quality-validation.md
    - Focus on: System interactions, data flow validation, error handling
 
 3. **Quality Assurance Review**: Systematic code quality validation before release
-   - Apply: quality-validation.instructions.md, testing-strategy.instructions.md
+   - Apply: quality-validation.md, testing-strategy.md
    - Focus on: Code standards compliance, linting results, review processes
 
 ## Quality Assurance

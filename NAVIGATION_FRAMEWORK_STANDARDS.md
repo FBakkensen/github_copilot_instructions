@@ -1,13 +1,13 @@
-# Navigation Framework Standards
+﻿# Navigation Framework Standards
 
 ## Cross-Reference Formatting Standards
 
 ### Internal File References
 **Format**: `[Description](relative/path/to/file.md)`
 **Examples**:
-- `[Core AL Principles](SharedGuidelines/Configuration/core-principles.instructions.md)`
-- `[Testing Strategy](../TestingValidation/testing-strategy.instructions.md)`
-- `[Naming Conventions](../SharedGuidelines/Standards/naming-conventions.instructions.md)`
+- `[Core AL Principles](SharedGuidelines/Configuration/core-principles.md)`
+- `[Testing Strategy](../TestingValidation/testing-strategy.md)`
+- `[Naming Conventions](../SharedGuidelines/Standards/naming-conventions.md)`
 
 ### Workflow References
 **Format**: `[Workflow Name](workflow-folder/)`
@@ -19,8 +19,8 @@
 ### Section References
 **Format**: `[Section Title](file.md#section-anchor)`
 **Examples**:
-- `[Object Naming](naming-conventions.instructions.md#object-naming)`
-- `[Error Handling Patterns](error-handling.instructions.md#implementation-examples)`
+- `[Object Naming](naming-conventions.md#object-naming)`
+- `[Error Handling Patterns](error-handling.md#implementation-examples)`
 
 ## Table of Contents Template
 
@@ -133,9 +133,9 @@
 ### Breadcrumb Navigation
 **Format**: `Workflow > Subfolder > Current File`
 **Examples**:
-- `CoreDevelopment > al-development-guide.instructions.md`
-- `SharedGuidelines > Standards > naming-conventions.instructions.md`
-- `TestingValidation > test-data-patterns.instructions.md`
+- `CoreDevelopment > al-development-guide.md`
+- `SharedGuidelines > Standards > naming-conventions.md`
+- `TestingValidation > test-data-patterns.md`
 
 ### Workflow Navigation Footer
 **Standard Footer for all README files**:
@@ -158,15 +158,15 @@
 
 ### File Naming for Discoverability
 1. **Descriptive Names**: Use purpose-driven naming
-   - `quality-validation.instructions.md` vs `linter_check.instructions.md`
-   - `integration-patterns.instructions.md` vs `integration-standards.instructions.md`
+   - `quality-validation.md` vs `linter_check.md`
+   - `integration-patterns.md` vs `integration-standards.md`
 
 2. **Consistent Suffixes**: Use standard file type indicators
-   - `.instructions.md` for GitHub Copilot instruction files
+   - `.md` for GitHub Copilot instruction files
    - `README.md` for navigation and overview files
-   - `-guide.instructions.md` for comprehensive guidance
-   - `-patterns.instructions.md` for implementation examples
-   - `-standards.instructions.md` for rules and requirements
+   - `-guide.md` for comprehensive guidance
+   - `-patterns.md` for implementation examples
+   - `-standards.md` for rules and requirements
 
 ### Content Organization for Search
 1. **Hierarchical Structure**: Organize content in logical hierarchy

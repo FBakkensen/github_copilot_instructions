@@ -1,7 +1,4 @@
----
-applyTo: '**/*.al'
----
-# Quality Validation Guidelines
+﻿# Quality Validation Guidelines
 
 This document outlines comprehensive quality validation practices including linter checks, code reviews, and validation processes for AL development in Business Central.
 
@@ -309,13 +306,13 @@ if Condition2 then
 ## Cross-References
 
 ### Related SharedGuidelines
-- **Code Style**: `SharedGuidelines/Standards/code-style.instructions.md` - Formatting and style standards for validation
-- **Naming Conventions**: `SharedGuidelines/Standards/naming-conventions.instructions.md` - Variable and object naming validation
-- **Error Handling**: `SharedGuidelines/Standards/error-handling.instructions.md` - Error handling quality patterns
+- **Code Style**: `SharedGuidelines/Standards/code-style.md` - Formatting and style standards for validation
+- **Naming Conventions**: `SharedGuidelines/Standards/naming-conventions.md` - Variable and object naming validation
+- **Error Handling**: `SharedGuidelines/Standards/error-handling.md` - Error handling quality patterns
 
 ### Related TestingValidation Files
-- **Testing Strategy**: `TestingValidation/testing-strategy.instructions.md` - Comprehensive testing for quality validation
-- **Test Data Patterns**: `TestingValidation/test-data-patterns.instructions.md` - Test data quality and validation
+- **Testing Strategy**: `TestingValidation/testing-strategy.md` - Comprehensive testing for quality validation
+- **Test Data Patterns**: `TestingValidation/test-data-patterns.md` - Test data quality and validation
 
 ### Workflow Applications
 - **CoreDevelopment**: Apply quality validation during object development

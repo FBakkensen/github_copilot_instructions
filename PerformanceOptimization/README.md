@@ -1,4 +1,4 @@
-# PerformanceOptimization - AL/Business Central Development Guidelines
+﻿# PerformanceOptimization - AL/Business Central Development Guidelines
 
 ## Workflow Purpose
 
@@ -15,7 +15,7 @@ This workflow addresses the following AL development areas:
 
 ## Included Guidelines
 
-### optimization-guide.instructions.md
+### optimization-guide.md
 **Purpose**: Comprehensive performance optimization guide with AL-specific patterns and code examples
 **When to use**: When developing high-performance applications, optimizing slow operations, or implementing scalable AL solutions
 **Key topics**:

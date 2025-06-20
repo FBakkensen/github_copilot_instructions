@@ -1,7 +1,4 @@
----
-applyTo: '**/*.al'
----
-# Naming Conventions for AL Development
+﻿# Naming Conventions for AL Development
 
 This document outlines the comprehensive naming conventions for variables, parameters, and objects in Business Central AL code to ensure consistency and maintainability across all development workflows.
 
@@ -173,9 +170,9 @@ CustomerOld: Record Customer;
 ## Cross-References
 
 ### Related SharedGuidelines
-- **Code Style**: `SharedGuidelines/Standards/code-style.instructions.md` - Formatting and style guidelines
-- **Error Handling**: `SharedGuidelines/Standards/error-handling.instructions.md` - Error naming patterns
-- **Core Principles**: `SharedGuidelines/Configuration/core-principles.instructions.md` - Development foundation
+- **Code Style**: `SharedGuidelines/Standards/code-style.md` - Formatting and style guidelines
+- **Error Handling**: `SharedGuidelines/Standards/error-handling.md` - Error naming patterns
+- **Core Principles**: `SharedGuidelines/Configuration/core-principles.md` - Development foundation
 
 ### Workflow Applications
 - **CoreDevelopment**: Object creation and variable naming implementation

@@ -1,4 +1,4 @@
-# AL Development Templates and Utilities
+﻿# AL Development Templates and Utilities
 
 This folder contains practical, copy-paste ready templates for common AL development scenarios in Business Central. These templates implement the standards and patterns defined in the SharedGuidelines and follow Business Central Version 26.0 best practices.
 
@@ -133,10 +133,10 @@ These templates leverage the latest AL features including:
 ## Cross-References
 
 ### Related SharedGuidelines
-- **Naming Conventions**: `SharedGuidelines/Standards/naming-conventions.instructions.md`
-- **Code Style**: `SharedGuidelines/Standards/code-style.instructions.md`
-- **Error Handling**: `SharedGuidelines/Standards/error-handling.instructions.md`
-- **Core Principles**: `SharedGuidelines/Configuration/core-principles.instructions.md`
+- **Naming Conventions**: `SharedGuidelines/Standards/naming-conventions.md`
+- **Code Style**: `SharedGuidelines/Standards/code-style.md`
+- **Error Handling**: `SharedGuidelines/Standards/error-handling.md`
+- **Core Principles**: `SharedGuidelines/Configuration/core-principles.md`
 
 ### Related Workflows
 - **CoreDevelopment**: Object patterns and development standards

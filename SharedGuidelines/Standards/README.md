@@ -1,4 +1,4 @@
-# Standards - Shared Development Guidelines
+﻿# Standards - Shared Development Guidelines
 
 ## Purpose
 
@@ -15,17 +15,17 @@ This directory provides shared standards for:
 
 ## Included Guidelines
 
-### naming-conventions.instructions.md
+### naming-conventions.md
 **Purpose**: Comprehensive naming conventions for all AL objects, variables, and components
 **When to use**: During all development activities to ensure consistent, meaningful names
 **Key topics**: Object naming patterns, variable conventions, file naming standards
 
-### code-style.instructions.md
+### code-style.md
 **Purpose**: Code formatting, style, and structural standards for AL development
 **When to use**: Throughout development to maintain consistent, readable code
 **Key topics**: Indentation, spacing, commenting, code organization patterns
 
-### error-handling.instructions.md
+### error-handling.md
 **Purpose**: Standardized error handling patterns and exception management
 **When to use**: When implementing error handling, validation, or exception management
 **Key topics**: Error message patterns, exception handling, validation strategies

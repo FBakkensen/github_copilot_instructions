@@ -1,7 +1,4 @@
----
-applyTo: '**/*.al'
----
-# Test Data Generation Patterns
+﻿# Test Data Generation Patterns
 
 This document outlines comprehensive patterns and best practices for generating test data in Business Central AL test libraries and test codeunits.
 
@@ -256,13 +253,13 @@ end;
 ## Cross-References
 
 ### Related SharedGuidelines
-- **Naming Conventions**: `SharedGuidelines/Standards/naming-conventions.instructions.md` - Test object and variable naming
-- **Code Style**: `SharedGuidelines/Standards/code-style.instructions.md` - Test code formatting and style
-- **Error Handling**: `SharedGuidelines/Standards/error-handling.instructions.md` - Error handling in test scenarios
+- **Naming Conventions**: `SharedGuidelines/Standards/naming-conventions.md` - Test object and variable naming
+- **Code Style**: `SharedGuidelines/Standards/code-style.md` - Test code formatting and style
+- **Error Handling**: `SharedGuidelines/Standards/error-handling.md` - Error handling in test scenarios
 
 ### Related TestingValidation Files
-- **Testing Strategy**: `TestingValidation/testing-strategy.instructions.md` - Overall testing approach and methodology
-- **Quality Validation**: `TestingValidation/quality-validation.instructions.md` - Test data quality validation
+- **Testing Strategy**: `TestingValidation/testing-strategy.md` - Overall testing approach and methodology
+- **Quality Validation**: `TestingValidation/quality-validation.md` - Test data quality validation
 
 ### Workflow Applications
 - **CoreDevelopment**: Test data generation for object development validation

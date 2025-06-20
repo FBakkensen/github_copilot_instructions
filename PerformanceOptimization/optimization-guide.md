@@ -1,7 +1,4 @@
----
-applyTo: '**/*.al'
----
-# Performance Optimization Guide for AL Development
+﻿# Performance Optimization Guide for AL Development
 
 This comprehensive guide outlines best practices and advanced techniques for optimizing AL code performance in Microsoft Business Central applications.
 

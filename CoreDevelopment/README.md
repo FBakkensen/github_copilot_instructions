@@ -1,4 +1,4 @@
-# CoreDevelopment - AL/Business Central Development Guidelines
+﻿# CoreDevelopment - AL/Business Central Development Guidelines
 
 ## Workflow Purpose
 
@@ -14,17 +14,17 @@ This workflow addresses the following AL development areas:
 
 ## Included Guidelines
 
-### al-development-guide.instructions.md
+### al-development-guide.md
 **Purpose**: Comprehensive AL language guidance covering development standards and patterns
 **When to use**: Starting new AL development, learning AL best practices, implementing standard development patterns
 **Key topics**: AL syntax, object development, extension model, code organization
 
-### coding-standards.instructions.md
+### coding-standards.md
 **Purpose**: Code structure, formatting, and basic coding standards for AL development
 **When to use**: Establishing code formatting standards, ensuring consistent code style, following development conventions
 **Key topics**: Code formatting, indentation, naming patterns, code organization
 
-### object-patterns.instructions.md
+### object-patterns.md
 **Purpose**: Detailed patterns and guidelines for specific AL object types
 **When to use**: Creating tables, pages, codeunits, reports, or other AL objects with proper implementation patterns
 **Key topics**: Table design, page layouts, codeunit structure, report patterns, object relationships
@@ -77,7 +77,7 @@ This workflow addresses the following AL development areas:
 
 ### Transition Points
 - **From SharedGuidelines**: Apply core principles and standards to object development
-  - Review core-principles.instructions.md before starting development
+  - Review core-principles.md before starting development
   - Reference naming-conventions for consistent object naming
   - Apply code-style standards throughout implementation
 
@@ -149,15 +149,15 @@ extension model, object design, AL syntax, development patterns, Business Centra
 
 ### Common Use Cases
 1. **Creating New Table**: Design data structure with proper fields, keys, and relationships
-   - Apply: object-patterns.instructions.md, coding-standards.instructions.md
+   - Apply: object-patterns.md, coding-standards.md
    - Focus on: Table design, field naming, data classification
 
 2. **Developing Business Logic**: Implement codeunit with business processes
-   - Apply: al-development-guide.instructions.md, coding-standards.instructions.md
+   - Apply: al-development-guide.md, coding-standards.md
    - Focus on: Procedure organization, error handling, event patterns
 
 3. **Building User Interface**: Create pages for data entry and display
-   - Apply: object-patterns.instructions.md, al-development-guide.instructions.md
+   - Apply: object-patterns.md, al-development-guide.md
    - Focus on: Page layout, field organization, user experience
 
 ## Quality Assurance

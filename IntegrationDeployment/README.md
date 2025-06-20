@@ -1,4 +1,4 @@
-# IntegrationDeployment - AL/Business Central Development Guidelines
+﻿# IntegrationDeployment - AL/Business Central Development Guidelines
 
 ## Workflow Purpose
 
@@ -15,7 +15,7 @@ This workflow addresses the following AL development areas:
 
 ## Included Guidelines
 
-### integration-patterns.instructions.md
+### integration-patterns.md
 **Purpose**: Comprehensive patterns for integrating AL applications with external systems and Business Central components
 **When to use**: When developing APIs, web services, external system connections, or internal Business Central integrations
 **Key topics**:
@@ -25,7 +25,7 @@ This workflow addresses the following AL development areas:
 - External system integration with proper authentication
 - Integration security best practices
 
-### accessibility-standards.instructions.md
+### accessibility-standards.md
 **Purpose**: Procedure accessibility standards for AL development to ensure testability and proper encapsulation
 **When to use**: When designing AL procedures and codeunit structure for maintainable, testable code
 **Key topics**:

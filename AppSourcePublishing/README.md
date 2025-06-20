@@ -1,4 +1,4 @@
-# AppSourcePublishing - AL/Business Central Development Guidelines
+﻿# AppSourcePublishing - AL/Business Central Development Guidelines
 
 ## Workflow Purpose
 
@@ -15,7 +15,7 @@ This workflow addresses the following AL development areas:
 
 ## Included Guidelines
 
-### appsource-requirements.instructions.md
+### appsource-requirements.md
 **Purpose**: Comprehensive AppSource publishing guide with complete workflow, validation patterns, and compliance checklists
 **When to use**: When preparing AL applications for AppSource submission, during compliance validation, or when implementing marketplace requirements
 **Key topics**:

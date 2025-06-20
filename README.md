@@ -1,4 +1,4 @@
-# AL/Business Central GitHub Copilot Instructions
+﻿# AL/Business Central GitHub Copilot Instructions
 
 ## Overview
 
@@ -24,54 +24,54 @@ This repository provides comprehensive, workflow-based AL development guidelines
 ### For Specific Tasks
 
 **Starting a New Project:**
-1. Begin with [SharedGuidelines/Configuration/core-principles](SharedGuidelines/Configuration/core-principles.instructions.md)
+1. Begin with [SharedGuidelines/Configuration/core-principles](SharedGuidelines/Configuration/core-principles.md)
 2. Move to [CoreDevelopment](CoreDevelopment/) for AL fundamentals
 3. Apply [SharedGuidelines/Standards](SharedGuidelines/Standards/) throughout development
 
 **Adding Tests:**
 1. Review [CoreDevelopment](CoreDevelopment/) patterns being tested
-2. Follow [TestingValidation/testing-strategy](TestingValidation/testing-strategy.instructions.md)
+2. Follow [TestingValidation/testing-strategy](TestingValidation/testing-strategy.md)
 3. Use [SharedGuidelines/Standards](SharedGuidelines/Standards/) for consistent test code
 
 **Performance Issues:**
 1. Check [PerformanceOptimization](PerformanceOptimization/) for optimization techniques
-2. Reference [CoreDevelopment/object-patterns](CoreDevelopment/object-patterns.instructions.md) for efficient patterns
+2. Reference [CoreDevelopment/object-patterns](CoreDevelopment/object-patterns.md) for efficient patterns
 3. Validate with [TestingValidation](TestingValidation/) approaches
 
 ## Workflow-Based Organization
 
 ### 🏗️ CoreDevelopment
 **Purpose**: AL language fundamentals and object development patterns
-- [`al-development-guide.instructions.md`](CoreDevelopment/al-development-guide.instructions.md) - Comprehensive AL language guidance and development practices
-- [`coding-standards.instructions.md`](CoreDevelopment/coding-standards.instructions.md) - Code structure and formatting standards
-- [`object-patterns.instructions.md`](CoreDevelopment/object-patterns.instructions.md) - Table, page, codeunit, and other AL object patterns
+- [`al-development-guide.md`](CoreDevelopment/al-development-guide.md) - Comprehensive AL language guidance and development practices
+- [`coding-standards.md`](CoreDevelopment/coding-standards.md) - Code structure and formatting standards
+- [`object-patterns.md`](CoreDevelopment/object-patterns.md) - Table, page, codeunit, and other AL object patterns
 
 **When to use**: Creating new AL objects, implementing business logic, following AL best practices
 
 ### 🧪 TestingValidation
 **Purpose**: Testing strategies and quality assurance processes
-- [`testing-strategy.instructions.md`](TestingValidation/testing-strategy.instructions.md) - Comprehensive testing methodology and frameworks
-- [`test-data-patterns.instructions.md`](TestingValidation/test-data-patterns.instructions.md) - Test data generation and management
-- [`quality-validation.instructions.md`](TestingValidation/quality-validation.instructions.md) - Linting, code review, and validation processes
+- [`testing-strategy.md`](TestingValidation/testing-strategy.md) - Comprehensive testing methodology and frameworks
+- [`test-data-patterns.md`](TestingValidation/test-data-patterns.md) - Test data generation and management
+- [`quality-validation.md`](TestingValidation/quality-validation.md) - Linting, code review, and validation processes
 
 **When to use**: Writing tests, validating code quality, ensuring compliance with standards
 
 ### 🔄 IntegrationDeployment
 **Purpose**: Integration patterns and deployment strategies
-- [`integration-patterns.instructions.md`](IntegrationDeployment/integration-patterns.instructions.md) - Business Central integration and API development
-- [`accessibility-standards.instructions.md`](IntegrationDeployment/accessibility-standards.instructions.md) - Procedure accessibility and testability requirements
+- [`integration-patterns.md`](IntegrationDeployment/integration-patterns.md) - Business Central integration and API development
+- [`accessibility-standards.md`](IntegrationDeployment/accessibility-standards.md) - Procedure accessibility and testability requirements
 
 **When to use**: Integrating with external systems, deploying extensions, ensuring accessibility
 
 ### ⚡ PerformanceOptimization
 **Purpose**: Performance tuning and optimization techniques
-- [`optimization-guide.instructions.md`](PerformanceOptimization/optimization-guide.instructions.md) - Database performance, UI optimization, and monitoring
+- [`optimization-guide.md`](PerformanceOptimization/optimization-guide.md) - Database performance, UI optimization, and monitoring
 
 **When to use**: Optimizing existing code, improving performance, addressing bottlenecks
 
 ### 📦 AppSourcePublishing
 **Purpose**: AppSource marketplace compliance and publishing
-- [`appsource-requirements.instructions.md`](AppSourcePublishing/appsource-requirements.instructions.md) - Marketplace requirements and publishing workflow
+- [`appsource-requirements.md`](AppSourcePublishing/appsource-requirements.md) - Marketplace requirements and publishing workflow
 
 **When to use**: Preparing extensions for AppSource, ensuring marketplace compliance
 
@@ -79,13 +79,13 @@ This repository provides comprehensive, workflow-based AL development guidelines
 **Purpose**: Cross-cutting standards that apply across all workflows
 
 #### [Standards/](SharedGuidelines/Standards/)
-- [`naming-conventions.instructions.md`](SharedGuidelines/Standards/naming-conventions.instructions.md) - Comprehensive naming rules for all AL objects
-- [`code-style.instructions.md`](SharedGuidelines/Standards/code-style.instructions.md) - Code formatting and style guidelines
-- [`error-handling.instructions.md`](SharedGuidelines/Standards/error-handling.instructions.md) - Error handling patterns and best practices
+- [`naming-conventions.md`](SharedGuidelines/Standards/naming-conventions.md) - Comprehensive naming rules for all AL objects
+- [`code-style.md`](SharedGuidelines/Standards/code-style.md) - Code formatting and style guidelines
+- [`error-handling.md`](SharedGuidelines/Standards/error-handling.md) - Error handling patterns and best practices
 
 #### [Configuration/](SharedGuidelines/Configuration/)
-- [`core-principles.instructions.md`](SharedGuidelines/Configuration/core-principles.instructions.md) - Fundamental AL development principles
-- [`ai-assistant-guidelines.instructions.md`](SharedGuidelines/Configuration/ai-assistant-guidelines.instructions.md) - GitHub Copilot configuration and behavior
+- [`core-principles.md`](SharedGuidelines/Configuration/core-principles.md) - Fundamental AL development principles
+- [`ai-assistant-guidelines.md`](SharedGuidelines/Configuration/ai-assistant-guidelines.md) - GitHub Copilot configuration and behavior
 
 ## Navigation Guide
 
@@ -99,19 +99,19 @@ This repository provides comprehensive, workflow-based AL development guidelines
 - Publishing to AppSource → [AppSourcePublishing](AppSourcePublishing/)
 
 **By Topic:**
-- Object naming → [SharedGuidelines/Standards/naming-conventions](SharedGuidelines/Standards/naming-conventions.instructions.md)
-- Code formatting → [SharedGuidelines/Standards/code-style](SharedGuidelines/Standards/code-style.instructions.md)
-- Error handling → [SharedGuidelines/Standards/error-handling](SharedGuidelines/Standards/error-handling.instructions.md)
-- Core principles → [SharedGuidelines/Configuration/core-principles](SharedGuidelines/Configuration/core-principles.instructions.md)
+- Object naming → [SharedGuidelines/Standards/naming-conventions](SharedGuidelines/Standards/naming-conventions.md)
+- Code formatting → [SharedGuidelines/Standards/code-style](SharedGuidelines/Standards/code-style.md)
+- Error handling → [SharedGuidelines/Standards/error-handling](SharedGuidelines/Standards/error-handling.md)
+- Core principles → [SharedGuidelines/Configuration/core-principles](SharedGuidelines/Configuration/core-principles.md)
 
 **By AL Object Type:**
-- Tables → [CoreDevelopment/object-patterns](CoreDevelopment/object-patterns.instructions.md) + [SharedGuidelines/Standards/naming-conventions](SharedGuidelines/Standards/naming-conventions.instructions.md)
-- Pages → [CoreDevelopment/al-development-guide](CoreDevelopment/al-development-guide.instructions.md) + [IntegrationDeployment/accessibility-standards](IntegrationDeployment/accessibility-standards.instructions.md)
-- Codeunits → [CoreDevelopment/object-patterns](CoreDevelopment/object-patterns.instructions.md) + [TestingValidation/testing-strategy](TestingValidation/testing-strategy.instructions.md)
+- Tables → [CoreDevelopment/object-patterns](CoreDevelopment/object-patterns.md) + [SharedGuidelines/Standards/naming-conventions](SharedGuidelines/Standards/naming-conventions.md)
+- Pages → [CoreDevelopment/al-development-guide](CoreDevelopment/al-development-guide.md) + [IntegrationDeployment/accessibility-standards](IntegrationDeployment/accessibility-standards.md)
+- Codeunits → [CoreDevelopment/object-patterns](CoreDevelopment/object-patterns.md) + [TestingValidation/testing-strategy](TestingValidation/testing-strategy.md)
 - Test Objects → [TestingValidation/](TestingValidation/) + [SharedGuidelines/Standards/](SharedGuidelines/Standards/)
 
 **Quick Reference:**
-- All instruction files use `.instructions.md` extension for GitHub Copilot recognition
+- All instruction files use `.md` extension for GitHub Copilot recognition
 - Each workflow folder contains comprehensive README with file descriptions
 - Cross-references link related content across workflows
 
@@ -120,17 +120,17 @@ This repository provides comprehensive, workflow-based AL development guidelines
 ### How to Find Information Quickly
 
 **By Common Development Tasks:**
-- **Fixing Linter Errors**: [TestingValidation/quality-validation](TestingValidation/quality-validation.instructions.md)
-- **Performance Issues**: [PerformanceOptimization/optimization-guide](PerformanceOptimization/optimization-guide.instructions.md)
-- **Naming Questions**: [SharedGuidelines/Standards/naming-conventions](SharedGuidelines/Standards/naming-conventions.instructions.md)
-- **Error Handling**: [SharedGuidelines/Standards/error-handling](SharedGuidelines/Standards/error-handling.instructions.md)
-- **Code Style Questions**: [SharedGuidelines/Standards/code-style](SharedGuidelines/Standards/code-style.instructions.md)
+- **Fixing Linter Errors**: [TestingValidation/quality-validation](TestingValidation/quality-validation.md)
+- **Performance Issues**: [PerformanceOptimization/optimization-guide](PerformanceOptimization/optimization-guide.md)
+- **Naming Questions**: [SharedGuidelines/Standards/naming-conventions](SharedGuidelines/Standards/naming-conventions.md)
+- **Error Handling**: [SharedGuidelines/Standards/error-handling](SharedGuidelines/Standards/error-handling.md)
+- **Code Style Questions**: [SharedGuidelines/Standards/code-style](SharedGuidelines/Standards/code-style.md)
 
 **By Development Context:**
 - **New Feature Development**: [CoreDevelopment](CoreDevelopment/) → [TestingValidation](TestingValidation/)
 - **Integration Projects**: [IntegrationDeployment](IntegrationDeployment/) + [SharedGuidelines/Standards](SharedGuidelines/Standards/)
 - **AppSource Preparation**: [AppSourcePublishing](AppSourcePublishing/) + ALL previous workflows
-- **Code Reviews**: [SharedGuidelines/Standards](SharedGuidelines/Standards/) + [TestingValidation/quality-validation](TestingValidation/quality-validation.instructions.md)
+- **Code Reviews**: [SharedGuidelines/Standards](SharedGuidelines/Standards/) + [TestingValidation/quality-validation](TestingValidation/quality-validation.md)
 
 **Search Keywords for GitHub/IDE:**
 - **AL Language**: `AL`, `Business Central`, `Dynamics 365`, `table`, `page`, `codeunit`, `report`
@@ -141,31 +141,31 @@ This repository provides comprehensive, workflow-based AL development guidelines
 ## Master Index - Topic-Based Navigation
 
 ### AL Object Development
-- **Table Creation**: [CoreDevelopment/object-patterns](CoreDevelopment/object-patterns.instructions.md#tables-and-table-extensions) | [SharedGuidelines/Standards/naming-conventions](SharedGuidelines/Standards/naming-conventions.instructions.md#object-naming)
-- **Page Development**: [CoreDevelopment/object-patterns](CoreDevelopment/object-patterns.instructions.md#pages-and-page-extensions) | [CoreDevelopment/coding-standards](CoreDevelopment/coding-standards.instructions.md#tooltips)
-- **Codeunit Patterns**: [CoreDevelopment/object-patterns](CoreDevelopment/object-patterns.instructions.md#codeunits) | [SharedGuidelines/Standards/error-handling](SharedGuidelines/Standards/error-handling.instructions.md)
-- **Report Development**: [CoreDevelopment/object-patterns](CoreDevelopment/object-patterns.instructions.md#reports-and-report-extensions) | [CoreDevelopment/al-development-guide](CoreDevelopment/al-development-guide.instructions.md)
+- **Table Creation**: [CoreDevelopment/object-patterns](CoreDevelopment/object-patterns.md#tables-and-table-extensions) | [SharedGuidelines/Standards/naming-conventions](SharedGuidelines/Standards/naming-conventions.md#object-naming)
+- **Page Development**: [CoreDevelopment/object-patterns](CoreDevelopment/object-patterns.md#pages-and-page-extensions) | [CoreDevelopment/coding-standards](CoreDevelopment/coding-standards.md#tooltips)
+- **Codeunit Patterns**: [CoreDevelopment/object-patterns](CoreDevelopment/object-patterns.md#codeunits) | [SharedGuidelines/Standards/error-handling](SharedGuidelines/Standards/error-handling.md)
+- **Report Development**: [CoreDevelopment/object-patterns](CoreDevelopment/object-patterns.md#reports-and-report-extensions) | [CoreDevelopment/al-development-guide](CoreDevelopment/al-development-guide.md)
 
 ### Code Quality and Standards
-- **Naming Conventions**: [SharedGuidelines/Standards/naming-conventions](SharedGuidelines/Standards/naming-conventions.instructions.md) | [CoreDevelopment/coding-standards](CoreDevelopment/coding-standards.instructions.md#prefix-guidelines)
-- **Code Style**: [SharedGuidelines/Standards/code-style](SharedGuidelines/Standards/code-style.instructions.md) | [CoreDevelopment/coding-standards](CoreDevelopment/coding-standards.instructions.md)
-- **Error Handling**: [SharedGuidelines/Standards/error-handling](SharedGuidelines/Standards/error-handling.instructions.md) | [CoreDevelopment/al-development-guide](CoreDevelopment/al-development-guide.instructions.md#error-handling-patterns)
-- **Linter Validation**: [TestingValidation/quality-validation](TestingValidation/quality-validation.instructions.md) | [SharedGuidelines/Standards/code-style](SharedGuidelines/Standards/code-style.instructions.md#troubleshooting)
+- **Naming Conventions**: [SharedGuidelines/Standards/naming-conventions](SharedGuidelines/Standards/naming-conventions.md) | [CoreDevelopment/coding-standards](CoreDevelopment/coding-standards.md#prefix-guidelines)
+- **Code Style**: [SharedGuidelines/Standards/code-style](SharedGuidelines/Standards/code-style.md) | [CoreDevelopment/coding-standards](CoreDevelopment/coding-standards.md)
+- **Error Handling**: [SharedGuidelines/Standards/error-handling](SharedGuidelines/Standards/error-handling.md) | [CoreDevelopment/al-development-guide](CoreDevelopment/al-development-guide.md#error-handling-patterns)
+- **Linter Validation**: [TestingValidation/quality-validation](TestingValidation/quality-validation.md) | [SharedGuidelines/Standards/code-style](SharedGuidelines/Standards/code-style.md#troubleshooting)
 
 ### Testing and Validation
-- **Testing Strategy**: [TestingValidation/testing-strategy](TestingValidation/testing-strategy.instructions.md) | [TestingValidation/quality-validation](TestingValidation/quality-validation.instructions.md)
-- **Test Data Generation**: [TestingValidation/test-data-patterns](TestingValidation/test-data-patterns.instructions.md) | [TestingValidation/testing-strategy](TestingValidation/testing-strategy.instructions.md#test-data-management)
-- **Quality Validation**: [TestingValidation/quality-validation](TestingValidation/quality-validation.instructions.md) | [SharedGuidelines/Standards/code-style](SharedGuidelines/Standards/code-style.instructions.md)
-- **X Prefix Requirements**: [TestingValidation/test-data-patterns](TestingValidation/test-data-patterns.instructions.md#test-data-prefixing-requirements) | [TestingValidation/testing-strategy](TestingValidation/testing-strategy.instructions.md#core-testing-principles)
+- **Testing Strategy**: [TestingValidation/testing-strategy](TestingValidation/testing-strategy.md) | [TestingValidation/quality-validation](TestingValidation/quality-validation.md)
+- **Test Data Generation**: [TestingValidation/test-data-patterns](TestingValidation/test-data-patterns.md) | [TestingValidation/testing-strategy](TestingValidation/testing-strategy.md#test-data-management)
+- **Quality Validation**: [TestingValidation/quality-validation](TestingValidation/quality-validation.md) | [SharedGuidelines/Standards/code-style](SharedGuidelines/Standards/code-style.md)
+- **X Prefix Requirements**: [TestingValidation/test-data-patterns](TestingValidation/test-data-patterns.md#test-data-prefixing-requirements) | [TestingValidation/testing-strategy](TestingValidation/testing-strategy.md#core-testing-principles)
 
 ### AL Language Features
-- **Variable Declaration**: [SharedGuidelines/Standards/naming-conventions](SharedGuidelines/Standards/naming-conventions.instructions.md#variables-and-parameters) | [SharedGuidelines/Standards/code-style](SharedGuidelines/Standards/code-style.instructions.md#variable-naming-conventions)
-- **Text Constants**: [SharedGuidelines/Standards/code-style](SharedGuidelines/Standards/code-style.instructions.md#text-constants-and-localization) | [CoreDevelopment/coding-standards](CoreDevelopment/coding-standards.instructions.md#text-constants-and-localization)
-- **Performance Patterns**: [SharedGuidelines/Standards/code-style](SharedGuidelines/Standards/code-style.instructions.md#performance-considerations) | [CoreDevelopment/al-development-guide](CoreDevelopment/al-development-guide.instructions.md#performance-optimization)
-- **Object Qualification**: [SharedGuidelines/Standards/code-style](SharedGuidelines/Standards/code-style.instructions.md#object-property-qualification) | [CoreDevelopment/al-development-guide](CoreDevelopment/al-development-guide.instructions.md)
+- **Variable Declaration**: [SharedGuidelines/Standards/naming-conventions](SharedGuidelines/Standards/naming-conventions.md#variables-and-parameters) | [SharedGuidelines/Standards/code-style](SharedGuidelines/Standards/code-style.md#variable-naming-conventions)
+- **Text Constants**: [SharedGuidelines/Standards/code-style](SharedGuidelines/Standards/code-style.md#text-constants-and-localization) | [CoreDevelopment/coding-standards](CoreDevelopment/coding-standards.md#text-constants-and-localization)
+- **Performance Patterns**: [SharedGuidelines/Standards/code-style](SharedGuidelines/Standards/code-style.md#performance-considerations) | [CoreDevelopment/al-development-guide](CoreDevelopment/al-development-guide.md#performance-optimization)
+- **Object Qualification**: [SharedGuidelines/Standards/code-style](SharedGuidelines/Standards/code-style.md#object-property-qualification) | [CoreDevelopment/al-development-guide](CoreDevelopment/al-development-guide.md)
 
 ### Development Workflow Map
-**Phase 1**: Start with [SharedGuidelines/Configuration/core-principles](SharedGuidelines/Configuration/core-principles.instructions.md) for foundational understanding  
+**Phase 1**: Start with [SharedGuidelines/Configuration/core-principles](SharedGuidelines/Configuration/core-principles.md) for foundational understanding  
 **Phase 2**: Apply [CoreDevelopment](CoreDevelopment/) patterns for object creation and development  
 **Phase 3**: Implement [TestingValidation](TestingValidation/) for quality assurance  
 **Phase 4**: Use [PerformanceOptimization](PerformanceOptimization/) for optimization  
@@ -281,7 +281,7 @@ Cross-Flow: Integration patterns apply throughout all workflow phases
 ### Development Flow and Workflow Transitions
 
 #### Sequential Development Process
-1. **Foundation Phase**: Start with [SharedGuidelines/Configuration/core-principles](SharedGuidelines/Configuration/core-principles.instructions.md)
+1. **Foundation Phase**: Start with [SharedGuidelines/Configuration/core-principles](SharedGuidelines/Configuration/core-principles.md)
    - Establish development philosophy and quality objectives
    - Configure AI assistant settings for optimal development support
    - Review standards and conventions for consistent application
@@ -384,8 +384,8 @@ The integration guide complements individual workflow documentation by providing
 
 ### Meaningful Names Strategy
 **Purpose-Driven Naming**: Files named by function, not technical structure
-- `quality-validation.instructions.md` (function) vs `linter_check.instructions.md` (technical)
-- `al-development-guide.instructions.md` (purpose) vs `al_code.instructions.md` (technical)
+- `quality-validation.md` (function) vs `linter_check.md` (technical)
+- `al-development-guide.md` (purpose) vs `al_code.md` (technical)
 
 **Workflow Context**: Files grouped by when they're used in AL development lifecycle
 - Development phase files in [CoreDevelopment](CoreDevelopment/)
@@ -395,7 +395,7 @@ The integration guide complements individual workflow documentation by providing
 ### Enhanced Discoverability
 **Multiple Navigation Paths**: Find content through:
 - Workflow-based browsing ([CoreDevelopment](CoreDevelopment/) → specific files)
-- Topic-based search (error handling → [SharedGuidelines/Standards/error-handling](SharedGuidelines/Standards/error-handling.instructions.md))
+- Topic-based search (error handling → [SharedGuidelines/Standards/error-handling](SharedGuidelines/Standards/error-handling.md))
 - Development phase navigation (testing → [TestingValidation](TestingValidation/))
 
 **Cross-Reference Network**: Related content linked rather than duplicated
@@ -411,7 +411,7 @@ The integration guide complements individual workflow documentation by providing
 1. **Identify Workflow**: Determine which business workflow the content supports
 2. **Check SharedGuidelines**: Verify if content is cross-cutting or workflow-specific
 3. **Avoid Duplication**: Reference existing content rather than duplicating
-4. **Maintain AL Headers**: Ensure all `.instructions.md` files have proper `applyTo: '**/*.al'`
+4. **Maintain AL Headers**: Ensure all `.md` files have proper `applyTo: '**/*.al'`
 
 **Modifying Existing Content:**
 1. **Single Source Rule**: Only update content in its primary location
@@ -437,7 +437,7 @@ The integration guide complements individual workflow documentation by providing
 ## GitHub Copilot Integration Benefits
 
 ### Optimized for AI Accessibility
-**Standardized File Structure**: All instruction files use `.instructions.md` extension for consistent AI recognition
+**Standardized File Structure**: All instruction files use `.md` extension for consistent AI recognition
 **Workflow Context**: AI assistants can easily navigate from high-level workflows to specific implementation guidance
 **Cross-Reference Network**: Related content linked to provide comprehensive context without duplication
 

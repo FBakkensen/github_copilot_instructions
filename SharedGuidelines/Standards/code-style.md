@@ -1,7 +1,4 @@
----
-applyTo: '**/*.al'
----
-# AL Code Style Guidelines
+﻿# AL Code Style Guidelines
 
 This document outlines the coding standards and best practices for AL code in this project. Following these guidelines ensures consistent, maintainable, and high-quality code.
 
@@ -356,9 +353,9 @@ var
 ## Cross-References
 
 ### Related SharedGuidelines
-- **Naming Conventions**: `SharedGuidelines/Standards/naming-conventions.instructions.md` - Variable and object naming rules
-- **Error Handling**: `SharedGuidelines/Standards/error-handling.instructions.md` - Error message formatting and text constants
-- **Core Principles**: `SharedGuidelines/Configuration/core-principles.instructions.md` - Development foundation
+- **Naming Conventions**: `SharedGuidelines/Standards/naming-conventions.md` - Variable and object naming rules
+- **Error Handling**: `SharedGuidelines/Standards/error-handling.md` - Error message formatting and text constants
+- **Core Principles**: `SharedGuidelines/Configuration/core-principles.md` - Development foundation
 
 ### Workflow Applications
 - **CoreDevelopment**: Implementation of style guidelines in object creation

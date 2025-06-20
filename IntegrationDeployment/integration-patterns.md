@@ -1,7 +1,4 @@
----
-applyTo: '**/*.al'
----
-# Business Central Integration Patterns
+﻿# Business Central Integration Patterns
 
 This document outlines best practices for integrating with Business Central and ensuring a consistent user experience through proven patterns and methodologies.
 

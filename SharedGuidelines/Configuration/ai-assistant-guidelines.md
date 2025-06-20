@@ -1,7 +1,4 @@
----
-applyTo: '**/*.al'
----
-# AI Assistant Guidelines for AL Development
+﻿# AI Assistant Guidelines for AL Development
 
 ## Code Quality and Standards
 

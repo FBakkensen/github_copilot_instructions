@@ -1,4 +1,4 @@
-# SharedGuidelines - Cross-Cutting AL Development Standards
+﻿# SharedGuidelines - Cross-Cutting AL Development Standards
 
 ## Workflow Purpose
 
@@ -31,27 +31,27 @@ This workflow addresses the following cross-cutting areas:
 
 ## Included Guidelines
 
-### Standards/naming-conventions.instructions.md
+### Standards/naming-conventions.md
 **Purpose**: Comprehensive naming rules for all AL objects, variables, and elements
 **When to use**: Naming any AL object, variable, parameter, or code element
 **Key topics**: Object naming, variable naming, parameter conventions, prefix guidelines
 
-### Standards/code-style.instructions.md
+### Standards/code-style.md
 **Purpose**: Code formatting, structure, and style guidelines for consistent AL development
 **When to use**: Writing or formatting AL code, establishing team coding standards
 **Key topics**: Indentation, formatting, code structure, style consistency
 
-### Standards/error-handling.instructions.md
+### Standards/error-handling.md
 **Purpose**: Error handling patterns and best practices for robust AL applications
 **When to use**: Implementing error handling, exception management, user feedback
 **Key topics**: Error patterns, exception handling, user messaging, actionable errors
 
-### Configuration/core-principles.instructions.md
+### Configuration/core-principles.md
 **Purpose**: Fundamental AL development principles that guide all development activities and establish development philosophy
 **When to use**: Understanding development philosophy, making architectural decisions, onboarding new developers
 **Key topics**: Core principles, development philosophy, architectural guidance, Business Central best practices
 
-### Configuration/ai-assistant-guidelines.instructions.md
+### Configuration/ai-assistant-guidelines.md
 **Purpose**: AI assistant configuration and behavior guidelines for optimal GitHub Copilot assistance in AL development
 **When to use**: Setting up AI assistance, configuring development environment, optimizing AI productivity
 **Key topics**: AI configuration, assistant behavior, code quality standards, implementation guidelines
@@ -59,7 +59,7 @@ This workflow addresses the following cross-cutting areas:
 ## Usage Instructions
 
 ### Getting Started
-1. **Review core principles**: Start with core-principles.instructions.md for foundational understanding
+1. **Review core principles**: Start with core-principles.md for foundational understanding
 2. **Apply standards consistently**: Use naming-conventions and code-style across all development
 3. **Implement error handling**: Apply error-handling patterns throughout your AL code
 4. **Configure AI assistance**: Use ai-assistant-guidelines for optimal GitHub Copilot integration
@@ -129,15 +129,15 @@ standards compliance, code quality, maintainability, AI integration
 
 ### Common Use Cases
 1. **Object Naming**: Applying consistent naming across tables, pages, codeunits
-   - Apply: Standards/naming-conventions.instructions.md
+   - Apply: Standards/naming-conventions.md
    - Focus on: Prefix usage, meaningful names, consistency
 
 2. **Code Formatting**: Maintaining consistent style across development team
-   - Apply: Standards/code-style.instructions.md
+   - Apply: Standards/code-style.md
    - Focus on: Indentation, structure, readability
 
 3. **Error Management**: Implementing user-friendly error handling
-   - Apply: Standards/error-handling.instructions.md
+   - Apply: Standards/error-handling.md
    - Focus on: Actionable messages, exception handling, user experience
 
 ## Quality Assurance

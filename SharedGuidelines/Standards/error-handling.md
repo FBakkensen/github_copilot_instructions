@@ -1,7 +1,4 @@
----
-applyTo: '**/*.al'
----
-# Error Handling Best Practices
+﻿# Error Handling Best Practices
 
 This document outlines best practices for error handling in Business Central AL code.
 
@@ -128,9 +125,9 @@ Always log significant errors for diagnostics and troubleshooting. This helps wi
 ## Cross-References
 
 ### Related SharedGuidelines
-- **Code Style**: `SharedGuidelines/Standards/code-style.instructions.md` - Text constant formatting and error message style
-- **Naming Conventions**: `SharedGuidelines/Standards/naming-conventions.instructions.md` - Error variable and message naming
-- **Core Principles**: `SharedGuidelines/Configuration/core-principles.instructions.md` - Quality and user experience principles
+- **Code Style**: `SharedGuidelines/Standards/code-style.md` - Text constant formatting and error message style
+- **Naming Conventions**: `SharedGuidelines/Standards/naming-conventions.md` - Error variable and message naming
+- **Core Principles**: `SharedGuidelines/Configuration/core-principles.md` - Quality and user experience principles
 
 ### Workflow Applications
 - **CoreDevelopment**: Implementation of error handling in object development

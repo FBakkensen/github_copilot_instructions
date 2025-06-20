@@ -1,4 +1,4 @@
-# [WORKFLOW_NAME] - AL/Business Central Development Guidelines
+﻿# [WORKFLOW_NAME] - AL/Business Central Development Guidelines
 
 ## Workflow Purpose
 
@@ -13,17 +13,17 @@ This workflow addresses the following AL development areas:
 
 ## Included Guidelines
 
-### [FILE_1_NAME].instructions.md
+### [FILE_1_NAME].md
 **Purpose**: [FILE_1_PURPOSE]
 **When to use**: [FILE_1_USAGE_SCENARIOS]
 **Key topics**: [FILE_1_KEY_TOPICS]
 
-### [FILE_2_NAME].instructions.md
+### [FILE_2_NAME].md
 **Purpose**: [FILE_2_PURPOSE]
 **When to use**: [FILE_2_USAGE_SCENARIOS]
 **Key topics**: [FILE_2_KEY_TOPICS]
 
-### [FILE_3_NAME].instructions.md (if applicable)
+### [FILE_3_NAME].md (if applicable)
 **Purpose**: [FILE_3_PURPOSE]
 **When to use**: [FILE_3_USAGE_SCENARIOS]
 **Key topics**: [FILE_3_KEY_TOPICS]

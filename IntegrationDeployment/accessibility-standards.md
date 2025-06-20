@@ -1,7 +1,4 @@
----
-applyTo: '**/*.al'
----
-# Accessibility Standards for AL Development
+﻿# Accessibility Standards for AL Development
 
 This document outlines rules for procedure accessibility in AL files to ensure proper testability, maintainability, and proper encapsulation practices in Business Central development.
 
