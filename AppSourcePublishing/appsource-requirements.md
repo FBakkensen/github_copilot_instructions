@@ -180,7 +180,7 @@ table 50100 "ABC Customer Rating"
             Caption = 'No.';
             DataClassification = CustomerContent;
             NotBlank = true;
-            
+
             trigger OnValidate()
             begin
                 TestField("No.");
@@ -194,7 +194,7 @@ table 50100 "ABC Customer Rating"
             DataClassification = CustomerContent;
             TableRelation = Customer."No.";
             NotBlank = true;
-            
+
             trigger OnValidate()
             var
                 Customer: Record Customer;
@@ -219,7 +219,7 @@ table 50100 "ABC Customer Rating"
             MinValue = 1;
             MaxValue = 5;
             NotBlank = true;
-            
+
             trigger OnValidate()
             begin
                 if ("Rating Score" < 1) or ("Rating Score" > 5) then
@@ -231,7 +231,7 @@ table 50100 "ABC Customer Rating"
             Caption = 'Rating Date';
             DataClassification = CustomerContent;
             NotBlank = true;
-            
+
             trigger OnValidate()
             begin
                 if "Rating Date" > Today then
@@ -279,10 +279,10 @@ table 50100 "ABC Customer Rating"
     begin
         if "No." = '' then
             NoSeriesMgt.InitSeries(GetNoSeriesCode(), xRec."No. Series", 0D, "No.", "No. Series");
-        
+
         "Created By" := CopyStr(UserId(), 1, MaxStrLen("Created By"));
         "Created Date Time" := CurrentDateTime;
-        
+
         if "Rating Date" = 0D then
             "Rating Date" := Today;
     end;
@@ -326,7 +326,7 @@ table 50100 "ABC Customer Rating"
     begin
         if not UserSetup.Get(UserId()) then
             Error(DeletionNotAllowedErr);
-        
+
         if not UserSetup."ABC Delete Ratings" then
             Error(DeletionNotAllowedErr);
     end;
@@ -497,7 +497,7 @@ page 50100 "ABC Customer Rating Card"
                     NewRating."No." := '';
                     NewRating."Rating Date" := Today;
                     NewRating.Insert(true);
-                    
+
                     RatingCard.SetRecord(NewRating);
                     RatingCard.RunModal();
                 end;
@@ -599,7 +599,7 @@ table 50101 "ABC Setup"
             Caption = 'Rating No. Series';
             DataClassification = CustomerContent;
             TableRelation = "No. Series";
-            
+
             trigger OnValidate()
             begin
                 if "Rating No. Series" <> '' then

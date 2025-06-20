@@ -132,4 +132,4 @@ This workflow addresses the following AL development areas:
 
 ---
 
-**Workflow Navigation**: [WORKFLOW_NAME] | [⬅️ Previous: PREVIOUS_WORKFLOW] | [➡️ Next: NEXT_WORKFLOW] | [🏠 Main README](../README.md)
+**Workflow Navigation**: [WORKFLOW_NAME] | [⬅️ Previous: PREVIOUS_WORKFLOW] | [➡️ Next: NEXT_WORKFLOW] | [🏠 Main README](README.md)
