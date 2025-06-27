@@ -182,14 +182,14 @@ This repository provides comprehensive, workflow-based AL development guidelines
 AL Development Methodology - Integrated Workflow Architecture
 
 ┌─────────────────────────────────────────────────────────────────────────────┐
-│                           SharedGuidelines                                 │
-│                    ┌─────────────┬─────────────┐                           │
-│                    │  Standards/ │Configuration│                           │
-│                    │    ┌────────┴─────────┐   │                           │
-│                    │    │ All Workflows   │   │                           │
-│                    │    │ Reference These  │   │                           │
-│                    │    └─────────┬────────┘   │                           │
-└────────────────────┴──────────────┼────────────┴───────────────────────────┘
+│                           SharedGuidelines                                  │
+│                    ┌─────────────┬─────────────┐                            │
+│                    │  Standards/ │Configuration│                            │
+│                    │    ┌────────┴─────────┐   │                            │
+│                    │    │ All Workflows    │   │                            │
+│                    │    │ Reference These  │   │                            │
+│                    │    └─────────┬────────┘   │                            │
+└────────────────────┴──────────────┼────────────┴────────────────────────────┘
                                     │
                    ┌────────────────┼────────────────┐
                    ▼                ▼                ▼
@@ -199,20 +199,20 @@ AL Development Methodology - Integrated Workflow Architecture
           │ • Objects       │ │ • APIs          │ │                 │
           │ • Business Logic│ │ • Accessibility │ │                 │
           │ • Standards     │ │ • Deployment    │ │                 │
-          └─────────┬───────┘ └─────────┬───────┘ │                 │
-                    │                   │         │                 │
-                    ├───────────────────┼─────────▼                 │
-                    │                   │ ┌─────────────────┐       │
-                    │                   └─│ TestingValidation│       │
-                    │                     │                 │       │
-                    │                     │ • Quality       │       │
-                    │                     │ • Validation    │       │
-                    │                     │ • Test Data     │       │
-                    │                     └─────────┬───────┘       │
-                    │                               │               │
-                    └───────────────────────────────┼───────────────┘
-                                                    │
-                                                    ▼
+          └─────────┬───────┘ └───────┬─────────┘ │                 │
+                    │                 │           │                 │
+                    ├─────────────────┼───────────▼                 │
+                    │                 │ ┌──────────────────┐        │
+                    │                 └─│ TestingValidation│        │
+                    │                   │                  │        │
+                    │                   │ • Quality        │        │
+                    │                   │ • Validation     │        │
+                    │                   │ • Test Data      │        │
+                    │                   └─────────┬────────┘        │
+                    │                             │                 │
+                    └─────────────────────────────┼─────────────────┘
+                                                  │
+                                                  ▼
                                         ┌─────────────────┐
                                         │PerformanceOptim │
                                         │                 │
