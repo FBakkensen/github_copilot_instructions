@@ -242,19 +242,7 @@ table 50100 "ABC Customer Rating"
         {
             Caption = 'Comments';
             DataClassification = CustomerContent;
-        }
-        field(7; "Created By"; Code[50])
-        {
-            Caption = 'Created By';
-            DataClassification = EndUserIdentifiableInformation;
-            Editable = false;
-        }
-        field(8; "Created Date Time"; DateTime)
-        {
-            Caption = 'Created Date Time';
-            DataClassification = CustomerContent;
-            Editable = false;
-        }
+        }       
     }
 
     keys
@@ -278,10 +266,7 @@ table 50100 "ABC Customer Rating"
     trigger OnInsert()
     begin
         if "No." = '' then
-            NoSeriesMgt.InitSeries(GetNoSeriesCode(), xRec."No. Series", 0D, "No.", "No. Series");
-
-        "Created By" := CopyStr(UserId(), 1, MaxStrLen("Created By"));
-        "Created Date Time" := CurrentDateTime;
+            NoSeriesMgt.InitSeries(GetNoSeriesCode(), xRec."No. Series", 0D, "No.", "No. Series");        
 
         if "Rating Date" = 0D then
             "Rating Date" := Today;
@@ -422,22 +407,6 @@ page 50100 "ABC Customer Rating Card"
                     ApplicationArea = All;
                     ToolTip = 'Specifies additional comments about the rating.';
                     MultiLine = true;
-                }
-            }
-            group(Administration)
-            {
-                Caption = 'Administration';
-                field("Created By"; Rec."Created By")
-                {
-                    ApplicationArea = All;
-                    ToolTip = 'Specifies who created this rating.';
-                    Editable = false;
-                }
-                field("Created Date Time"; Rec."Created Date Time")
-                {
-                    ApplicationArea = All;
-                    ToolTip = 'Specifies when this rating was created.';
-                    Editable = false;
                 }
             }
         }

@@ -31,21 +31,6 @@ table [ObjectID] "[Prefix] [EntityName]"
             DataClassification = CustomerContent;
             NotBlank = true;
         }
-        field(3; "Created Date"; Date)
-        {
-            Caption = 'Created Date';
-            Tooltip = 'Specifies when the [entity] was created.';
-            DataClassification = CustomerContent;
-            Editable = false;
-        }
-        field(4; "Created By"; Code[50])
-        {
-            Caption = 'Created By';
-            Tooltip = 'Specifies who created the [entity].';
-            DataClassification = EndUserIdentifiableInformation;
-            TableRelation = User."User Name";
-            Editable = false;
-        }
         field(5; Status; Enum "[Prefix] [EntityName] Status")
         {
             Caption = 'Status';
@@ -85,7 +70,7 @@ table [ObjectID] "[Prefix] [EntityName]"
         {
             // Secondary key for sorting and filtering
         }
-        key(Status; Status, "Created Date")
+        key(Status; Status)
         {
             // Composite key for status-based queries
         }
@@ -94,16 +79,13 @@ table [ObjectID] "[Prefix] [EntityName]"
     fieldgroups
     {
         fieldgroup(DropDown; "No.", Description, Status) { }
-        fieldgroup(Brick; "No.", Description, Status, "Created Date") { }
+        fieldgroup(Brick; "No.", Description, Status") { }
     }
 
     trigger OnInsert()
     begin
         if "No." = '' then
             NoSeriesMgt.InitSeries('[NoSeriesCode]', xRec."No. Series", 0D, "No.", "No. Series");
-        
-        "Created Date" := Today;
-        "Created By" := CopyStr(UserId(), 1, MaxStrLen("Created By"));
         
         if Status = Status::" " then
             Status := Status::Active;
