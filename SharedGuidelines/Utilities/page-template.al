@@ -46,21 +46,6 @@ page [ObjectID] "[Prefix] [EntityName] Card"
                     end;
                 }
             }
-            group(Details)
-            {
-                Caption = 'Details';
-                field("Created Date"; Rec."Created Date")
-                {
-                    ApplicationArea = All;
-                    Editable = false;
-                }
-                field("Created By"; Rec."Created By")
-                {
-                    ApplicationArea = All;
-                    Editable = false;
-                }
-                // Add additional detail fields as needed
-            }
             group(Statistics)
             {
                 Caption = 'Statistics';
@@ -249,15 +234,6 @@ page [ObjectID] "[Prefix] [EntityName] List"
                 {
                     ApplicationArea = All;
                     StyleExpr = StatusStyleExpr;
-                }
-                field("Created Date"; Rec."Created Date")
-                {
-                    ApplicationArea = All;
-                }
-                field("Created By"; Rec."Created By")
-                {
-                    ApplicationArea = All;
-                    Visible = false;
                 }
                 field("Related Records Count"; Rec."Related Records Count")
                 {
